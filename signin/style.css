@@ -6,7 +6,7 @@ body{
   display : flex;
   justify-content : center;
   align-items : center;
-  background-image : URL("./images/wallpaper.png");
+  background-image : linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),URL("./images/wallpaper.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
