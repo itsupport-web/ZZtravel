@@ -12,6 +12,13 @@ body{
   background-size: contain;
 }
 
+button{
+  background-color : red;
+  color : white;
+  width : auto;
+  height : 10%;
+}
+
 form{
   display : flex;
   flex-direction : column;
