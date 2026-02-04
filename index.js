@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 app.use(express.static("public"));
+app.use("/signin", express.static("signin"));
 app.use(express.json())
 app.post("/update", (req, res) => {
   if(req.get('Referrer') == "https://color-catch.glitch.me/"){
