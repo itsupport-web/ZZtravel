@@ -15,7 +15,27 @@ const pool = new Pool({
   database: "zzdb",
   ssl: { rejectUnauthorized: false } // required for Render
 });
+const createTable = async () => {
+  const query = `
+    CREATE TABLE IF NOT EXISTS users (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(100) NOT NULL,
+      email VARCHAR(100) UNIQUE NOT NULL,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+  `;
 
+  try {
+    await pool.query(query);
+    console.log('Table created (or already exists)');
+  } catch (err) {
+    console.error('Error creating table:', err);
+  } finally {
+    await pool.end(); // close the connection
+  }
+};
+
+createTable();
 // Test DB connection
 pool.query("SELECT NOW()", (err, res) => {
   if (err) {
@@ -39,7 +59,9 @@ async function addUser(username, email) {
   return result.rows[0];
 }
 
-
+app.post("/check",(req,res)=>{
+  
+})
 
 
 app.listen(3000, () => {
