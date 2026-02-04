@@ -5,8 +5,8 @@ app.use("/signin", express.static("signin"));
 app.use(express.json())
 app.post("/check", (req, res) => {
   const { username, password } = req.body;
-  if(password == process.env.PASSWORD){
-    res.sendFile(path.join(__dirname, "admin", "index.html"););
+  if(password === process.env.PASSWORD && username === "admin"){
+    res.sendFile(path.join(__dirname, "admin", "index.html"));
   }
 });
 
