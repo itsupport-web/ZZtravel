@@ -1,0 +1,15 @@
+.products{
+    width : 100%;
+    height : 80%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.products > *{
+    width : 20%;
+    height : 20%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px black;
+}

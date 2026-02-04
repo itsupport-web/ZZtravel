@@ -4,12 +4,19 @@
      <link rel="stylesheet" href="signin.css">
   </head>
   <body>
-      <form action="/check" method="POST">
-        <label for = "username">Username</label>
-        <input type = "text" name = "username" id = "username">      
-        <label for = "password">Password</label>
-        <input type = "password" name = "password" id = "password">
-        <button type = "submit"></button>
-      </form>
+        <div class="topbar">
+            <a href="https://example.com" class="topbarbuttons">Home</a>
+            <a href="https://example.com" class="topbarbuttons">Products</a>
+            <a href="https://example.com" class="topbarbuttons">About Us</a>
+            <a href="https://example.com" class="topbarbuttons">Contact Us</a>
+            <a href="./signin.html" class="topbarbuttons">Sign In</a>
+        </div>
+        <form action="/check" method="POST">
+            <label for = "username">Username</label>
+            <input type = "text" name = "username" id = "username">      
+            <label for = "password">Password</label>
+            <input type = "password" name = "password" id = "password">
+            <button type = "submit"></button>
+        </form>
   </body>
 </html>
