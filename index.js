@@ -109,9 +109,9 @@ app.get('/account/:file', ensureLoggedIn, (req, res) => {
   res.sendFile(path.join(__dirname, 'account', file));
 });
 
-app.get('/account/:file', ensureLoggedIn, (req, res) => {
+app.get('/public/:file', ensureLoggedIn, (req, res) => {
   const file = req.params.file;
-  res.sendFile(path.join(__dirname, 'account', file));
+  res.sendFile(path.join(__dirname, 'public', file));
 });
 
 
