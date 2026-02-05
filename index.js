@@ -56,6 +56,8 @@ app.post("/check",async (req,res)=>{
 
   let row = await getUser(username, password);
   if(row.length == 0){
+    
+    console.log("no row");
     return res.send(`
       <script>
         alert('Invalid username or password');
@@ -63,14 +65,18 @@ app.post("/check",async (req,res)=>{
       </script>
     `);
   }else{
+    
+    console.log("has row");
     req.session.user = { username };
     req.session.isLoggedIn = true;
     res.redirect('/account/index');
+    console.log("redirected");
   }
 })
 
 app.get('/account/index', (req, res) => {
   if(req.session.isLoggedIn){
+    console.log("sending file");
     res.sendFile(path.join(__dirname,"account","index.html"));
   }
 });
