@@ -167,6 +167,22 @@ app.post("/update", async (req,res)=>{
   res.redirect('/account/index');
 })
 
+app.post("/deletep", async (req,res)=>{
+  try {
+    const query = `DELETE FROM products WHERE id = $1;`;
+
+    const values = [req.body.id];.
+
+    const result = await pool.query(query, values);
+
+    console.log('Updated record:', result.rows[0]);
+  } catch (err) {
+    console.error('Error updating record:', err);
+  }
+  
+  res.redirect('/account/index');
+})
+
 app.get('/account/index', (req, res) => {
   if(req.session.isLoggedIn){
     console.log("sending file");

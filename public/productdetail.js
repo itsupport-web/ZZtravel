@@ -21,4 +21,8 @@ if (params.has("id")) {
   document.getElementById("forms").action = "/add"
 }
 
+document.getElementById("deletebutton").addEventListener("click",()=>{
+  document.getElementById("forms").action = "/deletep";
+})
+
 
