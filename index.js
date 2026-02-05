@@ -94,6 +94,23 @@ app.post("/getcurrent", async (req,res)=>{
     }
   }
 })
+
+app.post("/update", async (req,res)=>{
+  try {
+    const query = `UPDATE users SET password = $1 WHERE name = $2 RETURNING *;`;
+
+    const values = [req.body.password, req.session.user.username];
+
+    const result = await pool.query(query, values);
+
+    console.log('Updated record:', result.rows[0]);
+  } catch (err) {
+    console.error('Error updating record:', err);
+  } finally {
+    await pool.end();
+  }
+})
+
 app.get('/account/index', (req, res) => {
   if(req.session.isLoggedIn){
     console.log("sending file");
