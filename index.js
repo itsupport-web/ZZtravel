@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const { Pool } = require("pg");
 require("dotenv").config();
-
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use("/signin", express.static("signin"));
 app.use(express.json())
@@ -25,22 +25,38 @@ pool.query("SELECT NOW()", (err, res) => {
   }
 });
 
-async function getUsers() {
-  const result = await pool.query("SELECT * FROM users;");
-  return result.rows;
+async function getUser(name, password) {
+  // Use parameterized query to prevent SQL injection
+  const query = `
+    SELECT * FROM users
+    WHERE name = $1 AND password = $2
+  `;
+
+  const values = [name, password];
+
+  try {
+    const result = await pool.query(query, values);
+    return result.rows;
+  } catch (err) {
+    console.error('Error querying user:', err);
+    throw err;
+  }
 }
 
-// Add a new user
-async function addUser(username, email) {
-  const result = await pool.query(
-    "INSERT INTO users (username, email) VALUES ($1, $2) RETURNING *;",
-    [username, email]
-  );
-  return result.rows[0];
-}
+app.post("/check",async (req,res)=>{
+  const { username, password } = req.body;
 
-app.post("/check",(req,res)=>{
-  
+  let row = await getUser(username, password);
+  if(row.length == 0){
+    return res.send(`
+      <script>
+        alert('Invalid username or password');
+        window.location.href = '/login.html';
+      </script>
+    `);
+  }else{
+    res.redirect("https://zztravel.onrender.com/account/index.html")
+  }
 })
 
 
