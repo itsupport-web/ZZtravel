@@ -3,8 +3,12 @@ fetch("/products")
   .then(rows => {
     console.log(rows)
     rows.forEach(product => {
-      const el = document.createElement("div");
-      el.onclick = `./productdetail.html?id=${product.id}&name=${product.name}&desc=${product.description}`
+        const el = document.createElement("div");
+        el.onclick = () => {
+            const url = `./productdetail.html?id=${product.id}&name=${encodeURIComponent(product.name)}&desc=${encodeURIComponent(product.description)}`;
+            window.location.href = url;
+        };
+
       el.innerHTML = `
         <p>ID : ${product.id}</p>
         <p>NAME : ${product.name}</p>
@@ -15,6 +19,6 @@ fetch("/products")
     });
   });
 
-document.getElementById("add").addEventlistener("click",()=>{
+document.getElementById("add").addEventListener("click",()=>{
     window.location.href = "/productdetail";
 })
