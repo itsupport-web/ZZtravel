@@ -18,7 +18,3 @@ fetch("/products")
       document.getElementById("products").appendChild(el);
     });
   });
-
-document.getElementById("add").addEventListener("click",()=>{
-    window.location.href = "/productdetail";
-})
