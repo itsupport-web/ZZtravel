@@ -45,6 +45,16 @@ async function getProducts() {
   }
 }
 
+async function getLatestID(){
+   const query = `SELECT id FROM products ORDER BY id DESC LIMIT 1;`;
+    try {
+      const result = await pool.query(query);
+      return result.rows[0];
+    } catch (err) {
+      console.error('Error querying user:', err);
+      throw err;
+    }
+}
 async function getUser(name, password) {
   // Use parameterized query to prevent SQL injection
   let query = ``;
@@ -66,6 +76,10 @@ async function getUser(name, password) {
   }
 }
 
+app.post("/getoneproduct",async(req,res)=>{
+  let row = await getLatestID();
+  res.send(row);
+})
 app.post("/check",async (req,res)=>{
   const { username, password } = req.body;
 

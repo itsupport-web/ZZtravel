@@ -29,3 +29,21 @@ p{
     display : flex;
     flex-wrap: wrap;
 }
+
+#add{
+    height : 100%;
+    width : 20%;
+    color : white;
+}
+
+.navigator{
+    width : 100%;
+    background-color: var(--main-color);
+    height : 10%;
+}
+#add:hover{
+    height : 100%;
+    width : 20%;
+    background-color: white;
+    color : var(--main-color);
+}

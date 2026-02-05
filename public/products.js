@@ -4,7 +4,7 @@ fetch("/products")
     console.log(rows)
     rows.forEach(product => {
       const el = document.createElement("div");
-
+      el.onclick = `./productdetail.html?id=${product.id}&name=${product.name}&desc=${product.description}`
       el.innerHTML = `
         <p>ID : ${product.id}</p>
         <p>NAME : ${product.name}</p>
@@ -14,3 +14,7 @@ fetch("/products")
       document.getElementById("products").appendChild(el);
     });
   });
+
+document.getElementById("add").addEventlistener("click",()=>{
+    window.location.href = "/productdetail";
+})
