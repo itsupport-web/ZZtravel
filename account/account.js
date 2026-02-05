@@ -1,4 +1,5 @@
-    fetch("/getcurrent",{
+console.log("javascript file fetched");
+fetch("/getcurrent",{
         method: 'POST'
     })
     .then(res => res.text())
