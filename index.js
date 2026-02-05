@@ -55,6 +55,8 @@ app.post("/check",async (req,res)=>{
       </script>
     `);
   }else{
+    
+    res.sendFile(path.join(__dirname, 'account', 'index.html'));
     res.redirect("https://zztravel.onrender.com/account/index.html")
   }
 })
