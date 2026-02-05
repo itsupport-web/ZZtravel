@@ -104,8 +104,6 @@ function ensureLoggedIn(req, res, next) {
   res.redirect('/signin.html');
 }
 
-import path from 'path';
-
 app.get('/account/:file', ensureLoggedIn, (req, res) => {
   const file = req.params.file;
   res.sendFile(path.join(__dirname, 'account', file));
