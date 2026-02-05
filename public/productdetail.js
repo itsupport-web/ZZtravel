@@ -3,15 +3,20 @@ if (params.has("id")) {
   const id = params.get("id"); 
   const name = params.get("name");
   const description = params.get("desc");
-  document.getElementById("ID").innerText = id;
+  document.getElementById("ID").innerText = "ID : " + id;
+  document.getElementById("id").value = id;
   document.getElementById("name").value = name;
   document.getElementById("desc").value = description;
+  document.getElementById("submitbutton").value = "UPDATE"
 } else {
   fetch("/getoneproduct",{
         method: 'POST'
     })
     .then(res => res.json())
     .then(response => {
-        document.getElementById("ID").innerText = response.id;
-});
+        document.getElementById("ID").innerText = "ID : " + response.id;
+    });
+  document.getElementById("submitbutton").value = "ADD PRODUCT"
 }
+
+
