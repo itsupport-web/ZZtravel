@@ -135,6 +135,22 @@ app.post("/change", async(req,res)=>{
   res.redirect('/products.html');
 })
 
+app.post("/add", async(req,res)=>{
+  try {
+    const query = `INSERT INTO products (name, description) VALUES ($1,$2)`;
+
+    const values = [req.body.name, req.body.desc];
+
+    const result = await pool.query(query, values);
+
+    console.log('Updated record:', result.rows[0]);
+  } catch (err) {
+    console.error('Error updating record:', err);
+  }
+  res.redirect('/products.html');
+})
+
+
 app.post("/update", async (req,res)=>{
   try {
     const query = `UPDATE users SET password = $1 WHERE name = $2 RETURNING *;`;

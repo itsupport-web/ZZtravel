@@ -8,6 +8,7 @@ if (params.has("id")) {
   document.getElementById("name").value = name;
   document.getElementById("desc").value = description;
   document.getElementById("submitbutton").value = "UPDATE"
+  document.getElementById("forms").action = "/change"
 } else {
   fetch("/getoneproduct",{
         method: 'POST'
@@ -17,6 +18,7 @@ if (params.has("id")) {
         document.getElementById("ID").innerText = "ID : " + response.id;
     });
   document.getElementById("submitbutton").value = "ADD PRODUCT"
+  document.getElementById("forms").action = "/add"
 }
 
 
