@@ -78,8 +78,8 @@ app.post("/check",async (req,res)=>{
 
 app.post("/getcurrent", async (req,res)=>{
   if(req.session.isLoggedIn){
-    let row = await getUser(req.session.user);
-    console.log(req.session.user)
+    let row = await getUser(req.session.user.username);
+    console.log(req.session.user.username)
     if(row.length == 0){
       console.log("wrong")
       return res.send(`
