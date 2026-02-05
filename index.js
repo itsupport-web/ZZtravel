@@ -77,7 +77,10 @@ app.post("/getcurrent", async (req,res)=>{
   if(req.session.isLoggedIn){
     const { username, password } = req.body;
     let row = await getUser(username, password);
+    console.log("username : " + username );
+    console.log("password: " + password );
     if(row.length == 0){
+      console.log("wrong")
       return res.send(`
         <script>
           alert('Error Fecthing data');
@@ -85,6 +88,7 @@ app.post("/getcurrent", async (req,res)=>{
         </script>
       `);
     }else{
+      console.log("correct");
       res.reply(password);
     }
   }
