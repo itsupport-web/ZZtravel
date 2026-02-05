@@ -90,7 +90,7 @@ app.post("/getcurrent", async (req,res)=>{
       `);
     }else{
       console.log("correct");
-      res.reply(password);
+      res.reply(row[0].password);
     }
   }
 })
