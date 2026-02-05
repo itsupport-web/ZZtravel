@@ -11,6 +11,6 @@ fetch("/products")
         <p>${product.description}</p>
       `;
 
-      document.getElementById("product").appendChild(el);
+      document.getElementById("products").appendChild(el);
     });
   });
