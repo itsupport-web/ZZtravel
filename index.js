@@ -106,9 +106,7 @@ app.post("/update", async (req,res)=>{
     console.log('Updated record:', result.rows[0]);
   } catch (err) {
     console.error('Error updating record:', err);
-  } finally {
-    await pool.end();
-  }
+  } 
   
   res.redirect('/account/index');
 })
