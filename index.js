@@ -35,10 +35,9 @@ pool.query("SELECT NOW()", (err, res) => {
 });
 
 async function getProducts() {
-  // Use parameterized query to prevent SQL injection
   let query = `SELECT * FROM products`;
   try {
-    const result = await pool.query(query, values);
+    const result = await pool.query(query);
     return result.rows;
   } catch (err) {
     console.error('Error querying user:', err);
