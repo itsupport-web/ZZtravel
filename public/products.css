@@ -20,3 +20,8 @@
     border-radius: 15px;
     box-shadow: 5px 5px 5px black;
 }
+
+p{
+    display : flex;
+    flex-wrap: wrap;
+}

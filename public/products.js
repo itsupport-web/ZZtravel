@@ -6,9 +6,9 @@ fetch("/products")
       const el = document.createElement("div");
 
       el.innerHTML = `
-        <p>${product.id}</p>
-        <p>${product.name}</p>
-        <p>${product.description}</p>
+        <p>ID : ${product.id}</p>
+        <p>NAME : ${product.name}</p>
+        <p>DESCRIPTION : ${product.description}</p>
       `;
 
       document.getElementById("products").appendChild(el);
