@@ -109,6 +109,8 @@ app.post("/update", async (req,res)=>{
   } finally {
     await pool.end();
   }
+  
+  res.redirect('/account/index');
 })
 
 app.get('/account/index', (req, res) => {
