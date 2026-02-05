@@ -36,12 +36,15 @@ pool.query("SELECT NOW()", (err, res) => {
 
 async function getUser(name, password) {
   // Use parameterized query to prevent SQL injection
-  const query = `
-    SELECT * FROM users
-    WHERE name = $1 AND password = $2
-  `;
-
-  const values = [name, password];
+  let query = ``;
+  let values;
+  if(name && password){
+    query = `SELECT * FROM users WHERE name = $1 AND password = $2`;
+    values = [name, password];
+  }else{
+    values = [name];
+    query = `SELECT * FROM users WHERE name = $1`
+  }
 
   try {
     const result = await pool.query(query, values);
@@ -75,10 +78,7 @@ app.post("/check",async (req,res)=>{
 
 app.post("/getcurrent", async (req,res)=>{
   if(req.session.isLoggedIn){
-    const { username, password } = req.body;
-    let row = await getUser(username, password);
-    console.log("username : " + username );
-    console.log("password: " + password );
+    let row = await getUser(req.session.user);
     if(row.length == 0){
       console.log("wrong")
       return res.send(`
