@@ -1,11 +1,19 @@
 const express = require('express');
+const session = require('express-session');
 const app = express();
 const { Pool } = require("pg");
 require("dotenv").config();
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use("/signin", express.static("signin"));
 app.use(express.json())
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: false
+}));
+
 
 const pool = new Pool({
   host: "dpg-d61fi8ogjchc73fepf70-a",       // e.g., db-abc123.render.com
@@ -55,11 +63,17 @@ app.post("/check",async (req,res)=>{
       </script>
     `);
   }else{
-    
-    res.sendFile(path.join(__dirname, 'account', 'index.html'));
-    res.redirect("https://zztravel.onrender.com/account/index.html")
+    req.session.user = { username };
+    req.session.isLoggedIn = true;
+    res.redirect('/account/index');
   }
 })
+
+app.get('/account/index', (req, res) => {
+  if(req.session.isLoggedIn){
+    res.sendFile(__dirname,"account","index.html");
+  }
+});
 
 
 app.listen(3000, () => {
