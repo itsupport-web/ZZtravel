@@ -85,7 +85,7 @@ app.post("/getcurrent", async (req,res)=>{
         </script>
       `);
     }else{
-      res.reply(
+      res.reply(password);
     }
   }
 })
