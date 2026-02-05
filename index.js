@@ -3,6 +3,7 @@ const session = require('express-session');
 const app = express();
 const { Pool } = require("pg");
 require("dotenv").config();
+const path = require('path');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
