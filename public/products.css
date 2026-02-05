@@ -37,6 +37,7 @@ p{
 }
 
 .navigator{
+    margin-top: 10%;
     width : 100%;
     background-color: var(--main-color);
     height : 10%;
