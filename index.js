@@ -57,7 +57,6 @@ app.post("/check",async (req,res)=>{
 
   let row = await getUser(username, password);
   if(row.length == 0){
-    
     console.log("no row");
     return res.send(`
       <script>
@@ -66,7 +65,6 @@ app.post("/check",async (req,res)=>{
       </script>
     `);
   }else{
-    
     console.log("has row");
     req.session.user = { username };
     req.session.isLoggedIn = true;
@@ -75,11 +73,47 @@ app.post("/check",async (req,res)=>{
   }
 })
 
+app.post("/getcurrent", async (req,res)=>{
+  if(req.session.isLoggedIn){
+    const { username, password } = req.body;
+    let row = await getUser(username, password);
+    if(row.length == 0){
+      return res.send(`
+        <script>
+          alert('Error Fecthing data');
+          window.location.href = '/signin.html';
+        </script>
+      `);
+    }else{
+      res.reply(
+    }
+  }
+})
 app.get('/account/index', (req, res) => {
   if(req.session.isLoggedIn){
     console.log("sending file");
     res.sendFile(path.join(__dirname,"account","index.html"));
   }
+});
+
+//I MAY NEED THIS FUNCTION
+function ensureLoggedIn(req, res, next) {
+  if (req.session?.isLoggedIn) {
+    return next(); 
+  }
+  res.redirect('/signin.html');
+}
+
+import path from 'path';
+
+app.get('/account/:file', ensureLoggedIn, (req, res) => {
+  const file = req.params.file;
+  res.sendFile(path.join(__dirname, 'account', file));
+});
+
+app.get('/account/:file', ensureLoggedIn, (req, res) => {
+  const file = req.params.file;
+  res.sendFile(path.join(__dirname, 'account', file));
 });
 
 
