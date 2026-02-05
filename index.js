@@ -171,7 +171,7 @@ app.post("/deletep", async (req,res)=>{
   try {
     const query = `DELETE FROM products WHERE id = $1;`;
 
-    const values = [req.body.id];.
+    const values = [req.body.id];
 
     const result = await pool.query(query, values);
 
