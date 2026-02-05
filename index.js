@@ -51,7 +51,6 @@ app.post("/check",async (req,res)=>{
     return res.send(`
       <script>
         alert('Invalid username or password');
-        window.location.href = '/login.html';
       </script>
     `);
   }else{
