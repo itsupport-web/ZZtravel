@@ -71,7 +71,7 @@ app.post("/check",async (req,res)=>{
 
 app.get('/account/index', (req, res) => {
   if(req.session.isLoggedIn){
-    res.sendFile(__dirname,"account","index.html");
+    res.sendFile(path.join(__dirname,"account","index.html"));
   }
 });
 
