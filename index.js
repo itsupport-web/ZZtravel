@@ -34,6 +34,18 @@ pool.query("SELECT NOW()", (err, res) => {
   }
 });
 
+async function getProducts() {
+  // Use parameterized query to prevent SQL injection
+  let query = `SELECT * FROM products`;
+  try {
+    const result = await pool.query(query, values);
+    return result.rows;
+  } catch (err) {
+    console.error('Error querying user:', err);
+    throw err;
+  }
+}
+
 async function getUser(name, password) {
   // Use parameterized query to prevent SQL injection
   let query = ``;
@@ -136,6 +148,10 @@ app.get('/public/:file', ensureLoggedIn, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', file));
 });
 
+app.get("/products",async (req,res)=>{
+  let allproducts = await getProducts();
+  res.send(allproducts);
+})
 
 app.listen(3000, () => {
   console.log(`Server is running on port ${3000}`);
