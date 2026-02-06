@@ -15,7 +15,7 @@ if (params.has("id")) {
     })
     .then(res => res.json())
     .then(response => {
-        document.getElementById("ID").innerText = "ID : " + response.id;
+        document.getElementById("ID").innerText = "ID : " + (response.id + 1);
     });
   document.getElementById("submitbutton").value = "ADD PRODUCT"
   document.getElementById("forms").action = "/add"
