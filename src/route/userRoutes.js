@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const UserController = require('../controller/users.js');
 
-router.post("/check",UserController.login)
+router.post("/check", UserController.loginUser)
 
 
 
