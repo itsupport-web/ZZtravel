@@ -18,4 +18,4 @@ async function loginUser(req, res) {
   res.redirect('/account/index');
 }
 
-module.exports = { login };
+module.exports = { loginUser };
