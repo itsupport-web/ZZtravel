@@ -2,5 +2,5 @@
 /about  /about/index.html 200
 /contact    /contact/index.html 200
 /signin /signin/index.html 200
-/home   /home/index.html 200
+/    /home/index.html    200
 /product   /product/index.html 200f
