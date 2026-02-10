@@ -19,7 +19,7 @@ router.post("/update", async(req,res)=>{
   res.redirect('/products.html');
 })
 
-router.post("/getall", productController.getAll)
+router.post("/getall", productController.getAll);
 
 router.post("/add", async(req,res)=>{
   try {

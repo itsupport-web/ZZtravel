@@ -19,3 +19,5 @@ async function getAll(req,res){
     console.error('Error fetching record:', err);
   }
 }
+
+module.exports = { getAll };
