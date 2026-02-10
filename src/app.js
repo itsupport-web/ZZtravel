@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/home/index.html'));
 });
 
+app.get(['/home','/home/index.html'], (req, res))=> {
+  res.redirect("/");
+}
+
 app.listen(3000, () => {
   console.log(`Server running on port ${3000}`);
 });
