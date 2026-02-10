@@ -3,10 +3,9 @@ const path = require('path');
 
 async function getAll(req,res){
   try {
-    const { username, password } = req.body;
-    const user = await productService.getAll();
+    const products = await productService.getAll();
 
-    if (!user) {
+    if (!products) {
         return res.send(`
         <script>
             alert('error fetching data');
@@ -14,7 +13,7 @@ async function getAll(req,res){
         </script>
         `);
     }
-    res.send(productService.getAll());
+    res.send(products);
   } catch (err) {
     console.error('Error fetching record:', err);
   }
