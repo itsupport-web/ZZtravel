@@ -16,3 +16,5 @@ pool.query("SELECT NOW()", (err, res) => {
     console.log("Connected to database. Server time:", res.rows[0].now);
   }
 });
+
+module.exports = pool;
