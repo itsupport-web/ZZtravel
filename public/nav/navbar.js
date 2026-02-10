@@ -1,6 +1,6 @@
 fetch('/nav/navbar.html')
   .then(r => r.text())
-  .then((html){ 
+  .then((html)=>{ 
     document.body.insertBefore(html, document.body.firstChild);
   }
   )
