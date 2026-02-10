@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 require('dotenv').config(); 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+
 app.use(express.json())
 app.use(session({
   secret: 'your-secret-key',
@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 app.get(['/home','/home/index.html'], (req, res)=> {
   res.redirect("/");
 })
-
+app.use(express.static("public"));
 app.listen(3000, () => {
   console.log(`Server running on port ${3000}`);
 });
