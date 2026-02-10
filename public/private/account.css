@@ -10,3 +10,11 @@ form{
   height : 30%;
   box-shadow: 5px 5px 5px black;
 }
+
+.userList{
+  width : 50%;
+  height : 50%;
+  border : 2px solid black;
+  display:flex;
+  flex-direction: column;
+}

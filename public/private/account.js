@@ -1,8 +1,8 @@
 console.log("javascript file fetched");
-fetch("/getcurrent",{
+fetch("/users/getAll",{
         method: 'POST'
     })
     .then(res => res.text())
     .then(responseString => {
-        document.getElementById("password").value = responseString;
+        document.getElementById("userlist").innerHTML = "testtt";
     });

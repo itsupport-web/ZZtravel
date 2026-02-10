@@ -1,4 +1,4 @@
-async function getProducts() {
+async function getAll() {
   let query = `SELECT * FROM products`;
   try {
     const result = await pool.query(query);

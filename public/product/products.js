@@ -1,4 +1,4 @@
-fetch("/products")
+fetch("/products/getall")
   .then(res => res.json())
   .then(rows => {
     console.log(rows)

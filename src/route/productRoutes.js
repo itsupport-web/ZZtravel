@@ -1,9 +1,10 @@
 const { Pool } = require("pg");
-require("dotenv").config();
 const express = require('express');
 const router = express.Router();
 
-router.post("/change", async(req,res)=>{
+const productController = require('../controller/productController.js');
+
+router.post("/update", async(req,res)=>{
   try {
     const query = `UPDATE products SET name = $1, description = $2 WHERE id = $3 RETURNING *;`;
 
@@ -17,6 +18,8 @@ router.post("/change", async(req,res)=>{
   }
   res.redirect('/products.html');
 })
+
+router.post("/getall", productController.getAll)
 
 router.post("/add", async(req,res)=>{
   try {
@@ -37,3 +40,5 @@ router.post("/getoneproduct",async(req,res)=>{
   let row = await getLatestID();
   res.send(row);
 })
+
+module.exports = router;

@@ -15,6 +15,9 @@ app.use(session({
 const userRoutes = require('./route/userRoutes'); 
 app.use('/users', userRoutes);
 
+const productRoutes = require('./route/productRoutes'); 
+app.use('/products', productRoutes);
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/home/index.html'));
 });
