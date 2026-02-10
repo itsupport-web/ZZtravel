@@ -7,7 +7,7 @@ const UserController = require('../controller/userController.js');
 
 router.post("/check", UserController.loginUser);
 
-router.post("/admin",middleware.ensureLoggedIn, UserController.sendAdmin);
+router.get("/admin",middleware.ensureLoggedIn, UserController.sendAdmin);
 module.exports = router;
 
 
