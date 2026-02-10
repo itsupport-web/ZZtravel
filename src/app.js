@@ -14,6 +14,9 @@ app.use(session({
 
 const userRoutes = require('./route/userRoutes'); 
 app.use('/users', userRoutes);
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/home/index.html'));
+});
 
 app.listen(3000, () => {
   console.log(`Server running on port ${3000}`);
