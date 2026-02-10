@@ -12,5 +12,5 @@ app.use(session({
   saveUninitialized: false
 }));
 
-const userRoutes = require('./routes/userRoutes'); 
+const userRoutes = require('./route/userRoutes'); 
 app.use('/users', userRoutes);
