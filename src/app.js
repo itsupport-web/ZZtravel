@@ -22,7 +22,34 @@ app.get('/', (req, res) => {
 app.get(['/home','/home/index.html'], (req, res)=> {
   res.redirect("/");
 })
+
+app.get('/about/index.html', (req, res)=> {
+  res.redirect("/about");
+})
+
+app.get('/contact/index.html', (req, res)=> {
+  res.redirect("/contact");
+})
+
+app.get('/events/index.html', (req, res)=> {
+  res.redirect("/events");
+})
+
+app.get('/product/index.html', (req, res)=> {
+  res.redirect("/product");
+})
+
+app.get('/signin/index.html', (req, res)=> {
+  res.redirect("/signin");
+})
+
+
+
 app.use(express.static("public"));
+
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+});
 app.listen(3000, () => {
   console.log(`Server running on port ${3000}`);
 });
