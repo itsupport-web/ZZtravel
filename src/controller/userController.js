@@ -15,7 +15,7 @@ async function loginUser(req, res) {
 
   req.session.user = user;
   req.session.isLoggedIn = true;
-  res.redirect('/account/index');
+  res.sendFile(path.join(__dirname, '../../private'));
 }
 
 module.exports = { loginUser };
