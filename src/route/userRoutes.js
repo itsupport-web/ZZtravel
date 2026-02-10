@@ -7,7 +7,7 @@ const UserController = require('../controller/userController.js');
 
 router.post("/check", UserController.loginUser)
 
-
+module.exports = router;
 
 
 
