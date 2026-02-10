@@ -19,3 +19,5 @@ async function getLatestID(){
       throw err;
     }
 }
+
+module.exports = { getAll, getLatestID };
