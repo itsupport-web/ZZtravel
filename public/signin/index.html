@@ -3,10 +3,11 @@
   <head>
      <link rel="stylesheet" href="shared.css">
      <link rel="stylesheet" href="signin.css">
+     <script src = "./signin.js"></script>
      <script src = "/nav/navbar.js"></script>
   </head>
   <body>
-        <form action="/users/check" method="POST">
+        <form id = "loginForm" action="/users/check" method="POST">
             <label for = "username">Username</label>
             <input type = "text" name = "username" id = "username">      
             <label for = "password">Password</label>
