@@ -4,6 +4,5 @@ document.getElementById("loginForm").addEventListener('submit', e => {
     method: 'POST',
     body: new FormData(loginForm)
   })
-  window.location.href = "/admin";
 });
 

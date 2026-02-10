@@ -15,7 +15,15 @@ async function loginUser(req, res) {
 
   req.session.user = user;
   req.session.isLoggedIn = true;
-  res.sendFile(path.join(__dirname, '../../private/index.html'));
+  res.redirect("/users/admin");
 }
 
-module.exports = { loginUser };
+async function sendAdmin(req, res) {
+  if(req.session.isLoggedIn){
+    res.sendFile(path.join(__dirname, '../../private/index.html'));
+  }else{
+    res.status(404).send("Not Found");
+  }
+}
+
+module.exports = { loginUser, sendAdmin };
