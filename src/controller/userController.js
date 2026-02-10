@@ -1,5 +1,6 @@
 const UserService = require('../service/users.js');
 const path = require('path');
+
 async function loginUser(req, res) {
   const { username, password } = req.body;
   const user = await UserService.loginUser(username, password);
@@ -19,11 +20,7 @@ async function loginUser(req, res) {
 }
 
 async function sendAdmin(req, res) {
-  if(req.session.isLoggedIn){
     res.sendFile(path.join(__dirname, '../../private/index.html'));
-  }else{
-    res.status(404).send("Not Found");
-  }
 }
 
 module.exports = { loginUser, sendAdmin };

@@ -4,3 +4,5 @@ function ensureLoggedIn(req, res, next) {
   }
   res.redirect('/signin.html');
 }
+
+module.exports = {ensureLoggedIn}
