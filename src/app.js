@@ -16,7 +16,7 @@ const userRoutes = require('./route/userRoutes');
 app.use('/users', userRoutes);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../home/index.html'));
+  res.redirect('/home');
 });
 
 app.listen(3000, () => {
