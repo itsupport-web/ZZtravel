@@ -16,7 +16,7 @@ const userRoutes = require('./route/userRoutes');
 app.use('/users', userRoutes);
 
 app.get('/', (req, res) => {
-  res.redirect('/home');
+  res.senfFile('../public/home/index.html');
 });
 
 app.listen(3000, () => {
