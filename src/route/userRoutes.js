@@ -3,7 +3,7 @@ const router = express.Router();
 require("dotenv").config();
 
 
-const UserController = require('../controller/users.js');
+const UserController = require('../controller/userController.js');
 
 router.post("/check", UserController.loginUser)
 
