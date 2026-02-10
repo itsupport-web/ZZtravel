@@ -1,5 +1,5 @@
 const UserService = require('../service/users.js');
-
+const path = require('path');
 async function loginUser(req, res) {
   const { username, password } = req.body;
   const user = await UserService.loginUser(username, password);
