@@ -1,3 +1,5 @@
+const pool = require('../database/connect.js');
+
 async function getAll() {
   let query = `SELECT * FROM products`;
   try {
