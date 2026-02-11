@@ -6,9 +6,8 @@ fetch("/products/getall",{
     rows.forEach(product => {
         const el = document.createElement("div");
         el.onclick = () => {
-          alert("clicked");
           fetch("/products/setproductdetail", {
-            method: "GET",
+            method: "POST",
             headers: {
               "Content-Type": "application/json"
             },
@@ -17,8 +16,12 @@ fetch("/products/getall",{
               name: product.name,
               desc: product.description
             })
-          });
-          alert("passed fetch code");
+          }).then(res => res.json()) // parse JSON
+            .then(result => {
+              if (result === true) {
+                window.location.href = "/productdetail";
+              }
+            });
         };
         el.innerHTML = `
           <p>ID : ${product.id}</p>
