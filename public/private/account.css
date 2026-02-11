@@ -9,6 +9,7 @@ form{
   width : 30%;
   height : 30%;
   box-shadow: 5px 5px 5px black;
+  overflow-y: scroll;
 }
 
 table {
