@@ -33,7 +33,7 @@ async function getAll(req, res){
 
 function allowEdit(req,res){
     const { id, name, email, number, ic} = req.body;
-    req.session.allowEdit = true;
+    req.session.editExist = true;
     req.session.customer = {id, name, email, number, ic};
     res.send(true);
 }
@@ -44,9 +44,9 @@ function sendEditCustomer(req, res){
 
 function getCustomerDetail(req, res){
     let customerDetail= req.session.customer;
-    let edit = req.session.allowEdit;
+    let edit = req.session.editExist;
     req.session.customer = null;
-    req.session.allowEdit = false;
+    req.session.editExist = false;
     res.send({customerDetail, edit});
 }
 
