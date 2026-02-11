@@ -61,4 +61,19 @@ async function createProduct(req,res){
   };
 }
 
-module.exports = { getAll, updateProduct, getLatestID, createProduct};
+function setProductDetail(req, res){
+  const { id, name, desc } = req.body;
+  req.session.product = { id, name, desc };
+  req.session.productexist = true;
+  res.send(true);
+}
+
+function getProductDetail(req, res){
+  let productdetails = req.session.product;
+  let exist = req.session.productexist;
+  req.session.product = null;
+  req.session.productexist = false;
+  res.send({productdetails, exist});
+}
+
+module.exports = { getAll, updateProduct, getLatestID, createProduct, getProductDetail, setProductDetail};
