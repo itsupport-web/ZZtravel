@@ -10,11 +10,10 @@ inputs.forEach(input => {
 
 deleteButton.onclick = async () => {
   const id = document.getElementById("id").value;
-  console.log(typeof id)
   const res = await fetch(`/products/deleteproduct`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id })
+      body: JSON.stringify({ parseInt(id, 10)})
     });
 
   if (res.ok) {
