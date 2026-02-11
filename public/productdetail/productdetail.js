@@ -17,7 +17,7 @@ deleteButton.onclick = async () => {
     });
 
   if (res.ok) {
-    window.location.href = "/products"; // manual redirect
+    // window.location.href = "/products"; 
   }
 };
 
