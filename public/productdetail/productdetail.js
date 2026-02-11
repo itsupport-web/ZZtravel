@@ -17,7 +17,7 @@ deleteButton.onclick = async () => {
     });
 
   if (res.ok) {
-    window.location.href = "/products"; 
+    window.location.href = "/product"; 
   }
 };
 
@@ -39,8 +39,7 @@ fetch("/products/getproductdetail", {method : "POST"})
         .then(res => res.json())
         .then(response => {
           console.log(response);
-          document.getElementById("ID").innerText =
-            "ID : " + (response.id + 1);
+          document.getElementById("ID").innerText = "ID : " + (response.id + 1);
         });
       document.getElementById("submitbutton").value = "ADD PRODUCT";
       document.getElementById("forms").action = "/products/create";
