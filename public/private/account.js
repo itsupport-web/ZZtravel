@@ -17,6 +17,9 @@ fetch("/users/getall",{
                 <td>${users.contact_number}</td>   
                 <td>${users.ic}</td>
         `;
+        el.onclick = ()=>{
+            
+        }
         table.appendChild(el);
     })
     userList.appendChild(table);
