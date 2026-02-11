@@ -7,16 +7,14 @@ fetch("/users/getall",{
 .then(rows => {
     console.log(rows)
     rows.forEach(users => {
-        let el = document.createElement("div");
+        let el = document.createElement("tr");
         el.innerHTML = `
-            <tr>
                 <td>${users.id}</td>
                 <td>${users.name}</td>
                 <td>${users.email}</td>
                 <td>${users.email}</td>
                 <td>${users.contact_number}</td>   
-                <td>${users.ic}</td>  
-            </tr>
+                <td>${users.ic}</td>
         `;
         userList.appendChild(el);
     })
