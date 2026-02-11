@@ -24,3 +24,10 @@ fetch("/products/getproductdetail", {method : "POST"})
     }
   });
 
+window.addEventListener("beforeunload", (e) => {
+
+  // Standard way to show confirmation
+  e.preventDefault();
+  e.returnValue = ""; // Some browsers require this
+});
+
