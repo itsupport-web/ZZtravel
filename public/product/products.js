@@ -6,8 +6,17 @@ fetch("/products/getall",{
     rows.forEach(product => {
         const el = document.createElement("div");
         el.onclick = () => {
-            const url = `/productdetail/productdetail.html?id=${product.id}&name=${encodeURIComponent(product.name)}&desc=${encodeURIComponent(product.description)}`;
-            window.location.href = url;
+          fetch("/products/setproductdetail", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              id: product.id,
+              name: product.name,
+              desc: product.description
+            })
+          });
         };
         el.innerHTML = `
           <p>ID : ${product.id}</p>
