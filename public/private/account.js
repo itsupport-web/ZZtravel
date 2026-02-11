@@ -1,4 +1,5 @@
 const userList = document.getElementById("userlist");
+
 console.log("javascript file fetched");
 fetch("/users/getall",{
     method: 'POST'
