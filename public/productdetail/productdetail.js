@@ -1,4 +1,4 @@
-const inputs = document.querySelectorAll('input[type="text"], button');
+const inputs = document.querySelectorAll('input[type="text"]');
 const deleteButton = document.getElementById("deletebutton");
 let isDirty = false;
 
