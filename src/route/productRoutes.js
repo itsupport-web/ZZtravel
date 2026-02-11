@@ -15,4 +15,6 @@ router.post("/create", productController.createProduct);
 
 router.post("/getlatestproductid", productController.getLatestID);
 
+router.delete("/deleteproduct", productController.deleteProduct);
+
 module.exports = router;

@@ -76,4 +76,18 @@ function getProductDetail(req, res){
   res.send({productdetails, exist});
 }
 
-module.exports = { getAll, updateProduct, getLatestID, createProduct, getProductDetail, setProductDetail};
+async function deleteProduct(req,res){
+  try {
+    const delete = await productService.deleteProduct(req.body.id);
+    
+    if(!delete){
+      return;
+    }
+
+    res.send({ok : delete});
+  } catch (err) {
+    console.error('Error updating record:', err);
+  };
+}
+
+module.exports = { getAll, updateProduct, getLatestID, createProduct, getProductDetail, setProductDetail, deleteProduct};

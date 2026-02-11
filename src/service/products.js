@@ -11,6 +11,17 @@ async function getAll() {
   }
 }
 
+async function getLatestID(){
+    const query = `SELECT id FROM products ORDER BY id DESC LIMIT 1;`;
+    try {
+      const result = await pool.query(query);
+      return result.rows[0];
+    } catch (err) {
+      console.error('Error querying user:', err);
+      throw err;
+    }
+}
+
 async function updateProduct(name, desc, id){
     const query = `UPDATE products SET name = $1, description = $2 WHERE id = $3 RETURNING *;`;
 
@@ -27,28 +38,32 @@ async function updateProduct(name, desc, id){
     }
 }
 
-async function getLatestID(){
-    const query = `SELECT id FROM products ORDER BY id DESC LIMIT 1;`;
-    try {
-      const result = await pool.query(query);
-      return result.rows[0];
-    } catch (err) {
+async function createProduct(name, desc){
+    const query = `INSERT INTO products (name, description) VALUES ($1,$2)`;
+    const values = [name, desc];
+    try{
+      const result = await pool.query(query, values);
+
+      console.log('created product', result.rows[0]);
+
+      return true;
+    }catch(err){
       console.error('Error querying user:', err);
       throw err;
     }
 }
 
+async function deleteProduct(id){
+  const query = `DELETE FROM products where id = $1`;
 
-async function createProduct(name, desc){
-    const query = `INSERT INTO products (name, description) VALUES ($1,$2)`;
-    const values = [req.body.name, req.body.desc];
-    try{
-      const result = await pool.query(query, values);
+  const values = [id];
+  try{
+    const result = await pool.query(query, values);
 
-      console.log('created product', result.rows[0]);
-    }catch(err){
-      console.error('Error querying user:', err);
-      throw err;
-    }
+    return true;
+  }catch(err){
+    console.error('Error querying user:', err);
+    throw err;
+  }
 }
 module.exports = { getAll, getLatestID, updateProduct, createProduct};

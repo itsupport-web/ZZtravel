@@ -1,3 +1,21 @@
+const inputs = form.querySelectorAll('input[type="text"], textarea');
+const deleteButton = document.getElementById("deletebutton");
+let isDirty = false;
+
+inputs.forEach(input => {
+  input.addEventListener("input", () => {
+    isDirty = true;
+  });
+});
+
+deleteButton.onclick = async () => {
+  const id = document.getElementById("id").value;
+  const res = await fetch(`/products/deleteproduct/${id}`, { method: "DELETE" });
+  if (res.ok) {
+    window.location.href = "/products"; // manual redirect
+  }
+};
+
 fetch("/products/getproductdetail", {method : "POST"})
   .then(res => res.json())
   .then(data => {
@@ -25,9 +43,10 @@ fetch("/products/getproductdetail", {method : "POST"})
   });
 
 window.addEventListener("beforeunload", (e) => {
-
+  if(!isDirty) return;
   // Standard way to show confirmation
   e.preventDefault();
   e.returnValue = ""; // Some browsers require this
 });
+
 
