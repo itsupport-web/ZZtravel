@@ -1,5 +1,6 @@
 const inputs = document.querySelectorAll('input[type="text"]');
 const deleteButton = document.getElementById("deletebutton");
+const submitbutton = document.getElementById("submitbutton");
 let isDirty = false;
 
 inputs.forEach(input => {
@@ -8,7 +9,12 @@ inputs.forEach(input => {
   });
 });
 
+submitbutton.onclick = () =>{
+  isDirty = false;
+}
+
 deleteButton.onclick = async () => {
+  isDirty = false;
   const id = parseInt(document.getElementById("id").value);
   const res = await fetch(`/products/deleteproduct`, {
       method: "POST",
