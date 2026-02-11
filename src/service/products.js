@@ -66,4 +66,4 @@ async function deleteProduct(id){
     throw err;
   }
 }
-module.exports = { getAll, getLatestID, updateProduct, createProduct};
+module.exports = { getAll, getLatestID, updateProduct, createProduct, deleteProduct};
