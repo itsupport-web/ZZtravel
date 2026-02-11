@@ -13,6 +13,7 @@ fetch("/products/getproductdetail", {method : "POST"})
       fetch("/products/getlatestproductid", { method: "POST" })
         .then(res => res.json())
         .then(response => {
+          console.log(response);
           document.getElementById("ID").innerText =
             "ID : " + (response.id + 1);
         });
