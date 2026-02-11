@@ -1,5 +1,5 @@
 fetch("/products/getall",{
-  method: "GET"})
+  method: "POST"})
   .then(res => res.json())
   .then(rows => {
     console.log(rows)
@@ -8,7 +8,7 @@ fetch("/products/getall",{
         el.onclick = () => {
           alert("clicked");
           fetch("/products/setproductdetail", {
-            method: "POST",
+            method: "GET",
             headers: {
               "Content-Type": "application/json"
             },

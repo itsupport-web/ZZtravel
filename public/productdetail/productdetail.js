@@ -1,4 +1,4 @@
-fetch("/products/getproductdetail")
+fetch("/products/getproductdetail", {method : "POST"})
   .then(res => res.json())
   .then(data => {
     if (data.exist) {
