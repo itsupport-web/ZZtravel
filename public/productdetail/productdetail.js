@@ -10,7 +10,7 @@ fetch("/products/getproductdetail", {method : "POST"})
       document.getElementById("submitbutton").value = "UPDATE";
       document.getElementById("forms").action = "/products/update";
     } else {
-      fetch("/products/getoneproduct", { method: "POST" })
+      fetch("/products/getlatestproductid", { method: "POST" })
         .then(res => res.json())
         .then(response => {
           document.getElementById("ID").innerText =

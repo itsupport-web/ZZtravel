@@ -24,9 +24,6 @@ router.post("/getproductdetail", (req, res) => {
 
 router.post("/create", productController.createProduct);
 
-router.post("/getoneproduct",async(req,res)=>{
-  let row = await getLatestID();
-  res.send(row);
-})
+router.post("/getlatestproductid", productController.getLatestID);
 
 module.exports = router;
