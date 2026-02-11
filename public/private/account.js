@@ -12,7 +12,6 @@ fetch("/users/getall",{
                 <td>${users.id}</td>
                 <td>${users.name}</td>
                 <td>${users.email}</td>
-                <td>${users.email}</td>
                 <td>${users.contact_number}</td>   
                 <td>${users.ic}</td>
         `;
