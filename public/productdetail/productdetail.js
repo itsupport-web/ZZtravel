@@ -10,7 +10,12 @@ inputs.forEach(input => {
 
 deleteButton.onclick = async () => {
   const id = document.getElementById("id").value;
-  const res = await fetch(`/products/deleteproduct/${id}`, { method: "DELETE" });
+  const res = await fetch(`/products/deleteproduct`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id })
+    });
+
   if (res.ok) {
     window.location.href = "/products"; // manual redirect
   }
