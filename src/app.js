@@ -51,8 +51,9 @@ app.get('/signin/index.html', (req, res)=> {
 app.use(express.static("public"));
 
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+  res.status(404).sendFile(path.join(__dirname, '../public', 'notfound.html'));
 });
+
 app.listen(3000, () => {
   console.log(`Server running on port ${3000}`);
 });
