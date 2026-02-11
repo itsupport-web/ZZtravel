@@ -1,6 +1,7 @@
 fetch("/products/getproductdetail", {method : "POST"})
   .then(res => res.json())
   .then(data => {
+    console.log(data);
     if (data.exist) {
       const { id, name, desc } = data.productdetails;
       document.getElementById("ID").innerText = "ID : " + id;
