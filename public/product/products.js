@@ -6,7 +6,7 @@ fetch("/products/getall",{
     rows.forEach(product => {
         const el = document.createElement("div");
         el.onclick = () => {
-            const url = `./productdetail.html?id=${product.id}&name=${encodeURIComponent(product.name)}&desc=${encodeURIComponent(product.description)}`;
+            const url = `/productdetail/productdetail.html?id=${product.id}&name=${encodeURIComponent(product.name)}&desc=${encodeURIComponent(product.description)}`;
             window.location.href = url;
         };
         el.innerHTML = `
