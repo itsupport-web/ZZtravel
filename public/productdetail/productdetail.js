@@ -1,4 +1,4 @@
-fetch("/getproductdetail")
+fetch("/products/getproductdetail")
   .then(res => res.json())
   .then(data => {
     if (data.exist) {
@@ -10,7 +10,7 @@ fetch("/getproductdetail")
       document.getElementById("submitbutton").value = "UPDATE";
       document.getElementById("forms").action = "/change";
     } else {
-      fetch("/getoneproduct", { method: "POST" })
+      fetch("/products/getoneproduct", { method: "POST" })
         .then(res => res.json())
         .then(response => {
           document.getElementById("ID").innerText =

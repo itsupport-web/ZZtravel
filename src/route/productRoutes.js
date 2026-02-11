@@ -21,14 +21,14 @@ router.post("/update", async(req,res)=>{
 
 router.post("/getall", productController.getAll);
 
-app.post("/setproductdetail", (req, res) => {
+router.post("/setproductdetail", (req, res) => {
   const { id, name, desc } = req.body;
   req.session.product = { id, name, desc };
   req.session.productexist = true;
   res.redirect("/productdetail");
 });
 
-app.post("/getproductdetail", (req, res) => {
+router.post("/getproductdetail", (req, res) => {
   let productdetails = req.session.product;
   let exist = req.session.productexist;
   req.session.product = null;
