@@ -9,11 +9,11 @@ inputs.forEach(input => {
 });
 
 deleteButton.onclick = async () => {
-  const id = document.getElementById("id").value;
+  const id = parseInt(document.getElementById("id").value);
   const res = await fetch(`/products/deleteproduct`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ parseInt(id)})
+      body: JSON.stringify({ id })
     });
 
   if (res.ok) {
