@@ -13,7 +13,7 @@ deleteButton.onclick = async () => {
   const res = await fetch(`/products/deleteproduct`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ parseInt(id, 10)})
+      body: JSON.stringify({ parseInt(id)})
     });
 
   if (res.ok) {
