@@ -23,4 +23,12 @@ async function sendAdmin(req, res) {
     res.sendFile(path.join(__dirname, '../../private/index.html'));
 }
 
-module.exports = { loginUser, sendAdmin };
+async function getAll(req, res){
+    const users = await userService.getAll();
+
+    if(!users) return;
+
+    res.send(users);
+}
+
+module.exports = { loginUser, sendAdmin, getAll };

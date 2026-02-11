@@ -9,6 +9,8 @@ router.post("/check", UserController.loginUser);
 
 router.get("/admin", middleware.ensureLoggedIn, UserController.sendAdmin);
 
+router.post("/getall", middleware.ensureLoggedIn, UserController.getAll);
+
 module.exports = router;
 
 

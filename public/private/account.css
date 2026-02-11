@@ -11,10 +11,21 @@ form{
   box-shadow: 5px 5px 5px black;
 }
 
-.userList{
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
   width : 50%;
   height : 50%;
   border : 2px solid black;
-  display:flex;
-  flex-direction: column;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
