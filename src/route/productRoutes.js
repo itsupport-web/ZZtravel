@@ -16,7 +16,7 @@ router.post("/update", async(req,res)=>{
   } catch (err) {
     console.error('Error updating record:', err);
   }
-  res.redirect('/products.html');
+  res.redirect('/product');
 })
 
 router.post("/getall", productController.getAll);
@@ -48,7 +48,7 @@ router.post("/create", async(req,res)=>{
   } catch (err) {
     console.error('Error updating record:', err);
   }
-  res.redirect('/products.html');
+  res.redirect('/product');
 })
 
 router.post("/getoneproduct",async(req,res)=>{
