@@ -23,7 +23,7 @@ async function getLatestID(req,res){
   try{
     const ID = await productService.getLatestID();
 
-    if(!getID){
+    if(!ID){
       return;
     }
 
