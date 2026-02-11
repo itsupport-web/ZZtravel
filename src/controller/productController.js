@@ -27,7 +27,7 @@ async function getLatestID(req,res){
       return;
     }
 
-    res.send(ID);
+    res.json(ID);
   }catch (err) {
     console.error('Error updating record:', err);
   }
