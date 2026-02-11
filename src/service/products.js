@@ -1,7 +1,7 @@
 const pool = require('../database/connect.js');
 
 async function getAll() {
-  let query = `SELECT * FROM products`;
+  const query = `SELECT * FROM products`;
   try {
     const result = await pool.query(query);
     return result.rows;
@@ -11,8 +11,24 @@ async function getAll() {
   }
 }
 
+async function updateProduct(name, desc, id){
+    const query = `UPDATE products SET name = $1, description = $2 WHERE id = $3 RETURNING *;`;
+
+    const values = [name, desc, id];
+    try{
+      const result = await pool.query(query, values);
+      
+      console.log('Updated record:', result.rows[0]);
+
+      return true;
+    }catch(err){
+      console.error('Error querying user:', err);
+      throw err;
+    }
+}
+
 async function getLatestID(){
-   const query = `SELECT id FROM products ORDER BY id DESC LIMIT 1;`;
+    const query = `SELECT id FROM products ORDER BY id DESC LIMIT 1;`;
     try {
       const result = await pool.query(query);
       return result.rows[0];
@@ -22,4 +38,17 @@ async function getLatestID(){
     }
 }
 
-module.exports = { getAll, getLatestID };
+
+async function createProduct(name, desc){
+    const query = `INSERT INTO products (name, description) VALUES ($1,$2)`;
+    const values = [req.body.name, req.body.desc];
+    try{
+      const result = await pool.query(query, values);
+
+      console.log('created product', result.rows[0]);
+    }catch(err){
+      console.error('Error querying user:', err);
+      throw err;
+    }
+}
+module.exports = { getAll, getLatestID, updateProduct, createProduct};
