@@ -9,11 +9,10 @@ inputs.forEach(input => {
   });
 });
 
-submitbutton.onclick = () =>{
+submitbutton.addEventListener("click",()=>{
   isDirty = false;
-}
-
-deleteButton.onclick = async () => {
+})
+deleteButton.addEventListener("click", async() => {
   isDirty = false;
   const id = parseInt(document.getElementById("id").value);
   const res = await fetch(`/products/deleteproduct`, {
@@ -25,7 +24,7 @@ deleteButton.onclick = async () => {
   if (res.ok) {
     window.location.href = "/product"; 
   }
-};
+});
 
 fetch("/products/getproductdetail", {method : "POST"})
   .then(res => res.json())
