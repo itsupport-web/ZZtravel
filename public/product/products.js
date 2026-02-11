@@ -6,6 +6,7 @@ fetch("/products/getall",{
     rows.forEach(product => {
         const el = document.createElement("div");
         el.onclick = () => {
+          alert("clicked");
           fetch("/products/setproductdetail", {
             method: "POST",
             headers: {
@@ -17,6 +18,7 @@ fetch("/products/getall",{
               desc: product.description
             })
           });
+          alert("passed fetch code");
         };
         el.innerHTML = `
           <p>ID : ${product.id}</p>
