@@ -21,7 +21,7 @@ router.post("/update", async(req,res)=>{
 
 router.post("/getall", productController.getAll);
 
-router.post("/setproductdetail", (req, res) => {
+router.get("/setproductdetail", (req, res) => {
   const { id, name, desc } = req.body;
   req.session.product = { id, name, desc };
   req.session.productexist = true;

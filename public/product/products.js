@@ -1,5 +1,5 @@
 fetch("/products/getall",{
-  method: "POST"})
+  method: "GET"})
   .then(res => res.json())
   .then(rows => {
     console.log(rows)
