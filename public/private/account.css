@@ -1,24 +1,10 @@
-form{
-  display : flex;
-  flex-direction : column;
-  gap: 10%;
-  justify-content : center;
-  align-items : center;
-  background-color : rgb(255, 255, 255);
-  border-radius: 20px;
+table{
   width : 30%;
   height : 30%;
-  box-shadow: 5px 5px 5px black;
+  border : 2px solid black;
   overflow-y: scroll;
-}
-
-table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
-  width : 50%;
-  height : 50%;
-  border : 2px solid black;
 }
 
 td, th {
