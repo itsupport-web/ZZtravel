@@ -31,7 +31,7 @@ fetch("/users/getcustomerdetail", {method : "POST"})
   .then(data => {
     console.log(data);
     if (data.edit) {
-      const { id, name, email, number, ic} = data.productdetails;
+      const { id, name, email, number, ic} = data.customerDetail;
       document.getElementById("ID").innerText = "ID : " + id;
       document.getElementById("id").value = id;
       document.getElementById("name").value = name;
