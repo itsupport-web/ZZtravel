@@ -78,13 +78,13 @@ function getProductDetail(req, res){
 
 async function deleteProduct(req,res){
   try {
-    const delete = await productService.deleteProduct(req.body.id);
+    const deleted = await productService.deleteProduct(req.body.id);
     
-    if(!delete){
+    if(!deleted){
       return;
     }
 
-    res.send({ok : delete});
+    res.send({ok : deleted});
   } catch (err) {
     console.error('Error updating record:', err);
   };
