@@ -11,11 +11,11 @@ fetch("/users/getall",{
         el.innerHTML = `
             <tr>
                 <td>${users.id}</td>
-                <td>${product.name}</td>
-                <td>${product.email}</td>
-                <td>${product.email}</td>
-                <td>${product.contact_number}</td>   
-                <td>${product.ic}</td>  
+                <td>${users.name}</td>
+                <td>${users.email}</td>
+                <td>${users.email}</td>
+                <td>${users.contact_number}</td>   
+                <td>${users.ic}</td>  
             </tr>
         `;
         userList.appendChild(el);
