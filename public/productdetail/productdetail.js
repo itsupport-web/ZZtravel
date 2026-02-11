@@ -8,7 +8,7 @@ fetch("/products/getproductdetail", {method : "POST"})
       document.getElementById("name").value = name;
       document.getElementById("desc").value = desc;
       document.getElementById("submitbutton").value = "UPDATE";
-      document.getElementById("forms").action = "/change";
+      document.getElementById("forms").action = "/products/update";
     } else {
       fetch("/products/getoneproduct", { method: "POST" })
         .then(res => res.json())
@@ -17,7 +17,7 @@ fetch("/products/getproductdetail", {method : "POST"})
             "ID : " + (response.id + 1);
         });
       document.getElementById("submitbutton").value = "ADD PRODUCT";
-      document.getElementById("forms").action = "/add";
+      document.getElementById("forms").action = "/products/create";
     }
   });
 

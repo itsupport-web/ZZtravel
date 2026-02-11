@@ -36,7 +36,7 @@ router.post("/getproductdetail", (req, res) => {
   res.send({productdetails, exist});
 });
 
-router.post("/add", async(req,res)=>{
+router.post("/create", async(req,res)=>{
   try {
     const query = `INSERT INTO products (name, description) VALUES ($1,$2)`;
 
