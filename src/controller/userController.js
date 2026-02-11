@@ -19,7 +19,7 @@ async function loginUser(req, res) {
   res.redirect("/users/admin");
 }
 
-async function sendAdmin(req, res) {
+function sendAdmin(req, res) {
     res.sendFile(path.join(__dirname, '../../private/index.html'));
 }
 
@@ -31,4 +31,23 @@ async function getAll(req, res){
     res.send(users);
 }
 
-module.exports = { loginUser, sendAdmin, getAll };
+function allowEdit(req,res){
+    const { id, name, email, number, ic} = req.body;
+    req.session.allowEdit = true;
+    req.session.customer = {id, name, email, number, ic};
+    res.send(true);
+}
+
+function sendEditCustomer(req, res){
+    res.sendFile(path.join(__dirname, '../../private/customerdetail.html'));
+}
+
+function getCustomerDetail(req, res){
+    let customerDetail= req.session.customer;
+    let edit = req.session.allowEdit;
+    req.session.customer = null;
+    req.session.allowEdit = false;
+    res.send({customerDetail, edit});
+}
+
+module.exports = { loginUser, sendAdmin, getAll, allowEdit, getCustomerDetail, sendEditCustomer };
