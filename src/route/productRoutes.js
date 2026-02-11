@@ -17,7 +17,7 @@ router.post("/update", async(req,res)=>{
     console.error('Error updating record:', err);
   }
   res.redirect('/products.html');
-})s
+})
 
 router.post("/getall", productController.getAll);
 
