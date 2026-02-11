@@ -6,6 +6,7 @@ fetch("/users/getall",{
 .then(res => res.json())
 .then(rows => {
     console.log(rows)
+    let table = document.createElement("table");
     rows.forEach(users => {
         let el = document.createElement("tr");
         el.innerHTML = `
@@ -15,6 +16,7 @@ fetch("/users/getall",{
                 <td>${users.contact_number}</td>   
                 <td>${users.ic}</td>
         `;
-        userList.appendChild(el);
+        table.appendChild(el);
     })
+    userList.appendChild(table);
 });
