@@ -17,6 +17,14 @@ router.get("/editcustomer", middleware.ensureLoggedIn, UserController.sendEditCu
 
 router.post("/getcustomerdetail", middleware.ensureLoggedIn, UserController.getCustomerDetail);
 
+router.post("/updatecustomer", middleware.ensureLoggedIn, UserController.updateCustomer);
+
+router.post("/deletecustomer", middleware.ensureLoggedIn, UserController.deleteCustomer);
+
+router.post("/createcustomer", middleware.ensureLoggedIn, UserController.createCustomer);
+
+router.post("/getlatestcustomerid", middleware.ensureLoggedIn, UserController.getLatestID);
+
 module.exports = router;
 
 

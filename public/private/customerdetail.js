@@ -12,6 +12,7 @@ inputs.forEach(input => {
 submitbutton.addEventListener("click",()=>{
   isDirty = false;
 })
+
 deleteButton.addEventListener("click", async() => {
   isDirty = false;
   const id = parseInt(document.getElementById("id").value);
@@ -38,17 +39,18 @@ fetch("/users/getcustomerdetail", {method : "POST"})
       document.getElementById("email").value = email;
       document.getElementById("number").value = number;
       document.getElementById("ic").value = ic;
-      document.getElementById("forms").action = "/users/update";
+      document.getElementById("forms").action = "/users/updatecustomer";
+      document.getElementById("submitbutton").value = "UPDATE";
     } else {
       console.log("falsed");
-      fetch("/users/getlatestuserid", { method: "POST" })
+      fetch("/users/getlatestcustomerid", { method: "POST" })
         .then(res => res.json())
         .then(response => {
           console.log(response);
           document.getElementById("ID").innerText = "ID : " + (response.id + 1);
         });
-      document.getElementById("submitbutton").value = "ADD PRODUCT";
-      document.getElementById("forms").action = "/users/create";
+      document.getElementById("submitbutton").value = "ADD CUSTOMER";
+      document.getElementById("forms").action = "/users/createcustomer";
     }
   });
 

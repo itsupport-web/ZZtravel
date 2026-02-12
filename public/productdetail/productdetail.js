@@ -12,6 +12,7 @@ inputs.forEach(input => {
 submitbutton.addEventListener("click",()=>{
   isDirty = false;
 })
+
 deleteButton.addEventListener("click", async() => {
   isDirty = false;
   const id = parseInt(document.getElementById("id").value);

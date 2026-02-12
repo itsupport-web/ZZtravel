@@ -19,6 +19,20 @@ async function loginUser(req, res) {
   res.redirect("/users/admin");
 }
 
+async function getLatestID(req,res){
+  try{
+    const ID = await userService.getLatestID();
+
+    if(!ID){
+      return;
+    }
+
+    res.json(ID);
+  }catch (err) {
+    console.error('Error updating record:', err);
+  }
+}
+
 function sendAdmin(req, res) {
     res.sendFile(path.join(__dirname, '../../private/index.html'));
 }
@@ -50,4 +64,45 @@ function getCustomerDetail(req, res){
     res.send({customerDetail, edit});
 }
 
-module.exports = { loginUser, sendAdmin, getAll, allowEdit, getCustomerDetail, sendEditCustomer };
+async function updateCustomer(req,res){
+  try {
+    const update = await userService.updateCustomer(req.body.id, req.body.name, req.body.email, req.body.number, req.body.ic);
+    
+    if(!update){
+      return;
+    }
+
+    res.redirect("/product");
+  } catch (err) {
+    console.error('Error updating record:', err);
+  };
+}
+
+async function createCustomer(req,res){
+  try {
+    const create = await userService.createCustomer(req.body.name, req.body.email, req.body.number, req.body.ic);
+    
+    if(!create){
+      return;
+    }
+
+    res.redirect("/product");
+  } catch (err) {
+    console.error('Error updating record:', err);
+  };
+}
+
+async function deleteCustomer(req,res){
+  try {
+    const deleted = await userService.deleteCustomer(req.body.id);
+    
+    if(!deleted){
+      return;
+    }
+
+    res.redirect("/product");
+  } catch (err) {
+    console.error('Error updating record:', err);
+  };
+}
+module.exports = { loginUser, sendAdmin, getAll, allowEdit, getCustomerDetail, sendEditCustomer, createCustomer, updateCustomer, deleteCustomer, getLatestID};
