@@ -89,4 +89,4 @@ async function deleteCustomer(id){
   }
 }
 
-module.exports = { loginUser, getAll, updateCustomer, createCustomer, deleteCustome, getLatestID};
+module.exports = { loginUser, getAll, updateCustomer, createCustomer, deleteCustomer, getLatestID};
