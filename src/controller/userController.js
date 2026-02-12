@@ -72,7 +72,7 @@ async function updateCustomer(req,res){
       return;
     }
 
-    res.redirect("/product");
+    res.redirect("/users/admin");
   } catch (err) {
     console.error('Error updating record:', err);
   };
@@ -86,7 +86,7 @@ async function createCustomer(req,res){
       return;
     }
 
-    res.redirect("/product");
+    res.redirect("/users/admin");
   } catch (err) {
     console.error('Error updating record:', err);
   };
@@ -100,7 +100,7 @@ async function deleteCustomer(req,res){
       return;
     }
 
-    res.redirect("/product");
+    res.redirect("/users/admin");
   } catch (err) {
     console.error('Error updating record:', err);
   };

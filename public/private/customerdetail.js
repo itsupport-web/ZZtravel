@@ -23,7 +23,7 @@ deleteButton.addEventListener("click", async() => {
     });
 
   if (res.ok) {
-    window.location.href = "/product"; 
+    window.location.href = "/users/admin"; 
   }
 });
 
