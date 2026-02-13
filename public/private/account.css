@@ -21,3 +21,22 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+#add{
+    height : 100%;
+    width : 20%;
+    color : white;
+}
+
+.navigator{
+    margin-top: 10%;
+    width : 100%;
+    background-color: var(--main-color);
+    height : 10%;
+}
+#add:hover{
+    height : 100%;
+    width : 20%;
+    background-color: white;
+    color : var(--main-color);
+}
