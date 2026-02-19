@@ -55,6 +55,10 @@ fetch("/products/getall",{
           new RegExp(`(${textValue})`, "gi"), // case-insensitive & multiple matches
           `<span style="background-color: yellow;">$1</span>`
         );
+        row.name = row.name.replace(
+          new RegExp(`(${textValue})`, "gi"), // case-insensitive & multiple matches
+          `<span style="background-color: yellow;">$1</span>`
+        );
       })
       console.log(rows);
       showProducts(rows);
