@@ -7,7 +7,7 @@ fetch("/products/getall",{
 
   document.getElementById("searchbar").addEventListener("input", filter)
 
-  function showProducts(row){
+  function showProducts(rows){
      rows.forEach(product => {
         const el = document.createElement("div");
         el.onclick = () => {
