@@ -49,7 +49,10 @@ fetch("/products/getall",{
         text : textValue
       })})
     .then(res => res.json())
-    .then((rows)=>{ 
+    .then((rows)=>{
+      rows.forEach((row)=>{
+        row.description.replace(textValue,`<span style="background-color: yellow;">${textValue}</span>`)
+      })
       showProducts(rows);
     })
   }

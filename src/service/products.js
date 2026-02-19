@@ -68,7 +68,7 @@ async function deleteProduct(id){
 }
 
 async function filterProduct(text){
-  const query = `SELECT * FROM products WHERE name LIKE $1 OR description LIKE $1`;
+  const query = `SELECT * FROM products WHERE name ILIKE $1 OR description ILIKE $1`;
 
   const values = [`%${text}%`];
 

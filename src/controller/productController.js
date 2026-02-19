@@ -9,7 +9,7 @@ async function getAll(req,res){
         return res.send(`
         <script>
             alert('error fetching data');
-            window.location.href = '/public/signin/index.html';
+            window.location.href = '/signin/';
         </script>
         `);
     }
