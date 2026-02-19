@@ -2,8 +2,13 @@ fetch("/products/getall",{
   method: "POST"})
   .then(res => res.json())
   .then(rows => {
-    console.log(rows)
-    rows.forEach(product => {
+    showProducts(rows);
+  });
+
+  document.getElementById("searchbar").addEventListener("input", filter)
+
+  function showProducts(row){
+     rows.forEach(product => {
         const el = document.createElement("div");
         el.onclick = () => {
           fetch("/products/setproductdetail", {
@@ -30,4 +35,20 @@ fetch("/products/getall",{
         `;
       document.getElementById("products").appendChild(el);
     });
-  });
+  }
+
+  function filter(){
+    let textValue = document.getElementById("searchbar").value;
+    fetch("/products/filterproduct",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        text : textValue
+      })})
+    .then(res => res.json())
+    .then((rows)=>{ 
+      showProducts(row);
+    })
+  }

@@ -17,4 +17,6 @@ router.post("/getlatestproductid", productController.getLatestID);
 
 router.post("/deleteproduct", productController.deleteProduct);
 
+router.post("/filterproduct", productController.filterProduct);
+
 module.exports = router;

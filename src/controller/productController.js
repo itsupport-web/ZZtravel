@@ -90,4 +90,18 @@ async function deleteProduct(req,res){
   };
 }
 
-module.exports = { getAll, updateProduct, getLatestID, createProduct, getProductDetail, setProductDetail, deleteProduct};
+async function filterProduct(req,res){
+  try {
+    const filters = await productService.filterProduct(req.body.text);
+    
+    if(!filters){
+      return;
+    }
+
+    res.send(filters);
+  } catch (err) {
+    console.error('Error updating record:', err);
+  };
+}
+
+module.exports = { getAll, updateProduct, getLatestID, createProduct, getProductDetail, setProductDetail, deleteProduct, filterProduct};

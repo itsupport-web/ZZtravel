@@ -66,4 +66,18 @@ async function deleteProduct(id){
     throw err;
   }
 }
-module.exports = { getAll, getLatestID, updateProduct, createProduct, deleteProduct};
+
+async function filterProduct(text){
+  const query = `SELECT * FROM products WHERE name LIKE %$1% OR description LIKE %$1%`;
+
+  const values = [text];
+  try{
+    const result = await pool.query(query, values);
+
+    return result.rows;
+  }catch(err){
+    console.error('Error querying user:', err);
+    throw err;
+  }
+}
+module.exports = { getAll, getLatestID, updateProduct, createProduct, deleteProduct, filterProduct};
