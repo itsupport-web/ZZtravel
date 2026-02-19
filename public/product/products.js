@@ -49,6 +49,6 @@ fetch("/products/getall",{
       })})
     .then(res => res.json())
     .then((rows)=>{ 
-      showProducts(row);
+      showProducts(rows);
     })
   }
