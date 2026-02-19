@@ -53,6 +53,7 @@ fetch("/products/getall",{
       rows.forEach((row)=>{
         row.description.replace(textValue,`<span style="background-color: yellow;">${textValue}</span>`)
       })
+      console.log(rows);
       showProducts(rows);
     })
   }
