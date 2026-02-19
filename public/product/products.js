@@ -8,6 +8,7 @@ fetch("/products/getall",{
   document.getElementById("searchbar").addEventListener("input", filter)
 
   function showProducts(rows){
+    document.getElementById("products").innerHTML = "";
      rows.forEach(product => {
         const el = document.createElement("div");
         el.onclick = () => {
