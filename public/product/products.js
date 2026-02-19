@@ -51,7 +51,10 @@ fetch("/products/getall",{
     .then(res => res.json())
     .then((rows)=>{
       rows.forEach((row)=>{
-        row.description.replace(textValue,`<span style="background-color: yellow;">${textValue}</span>`)
+        row.description = row.description.replace(
+          new RegExp(`(${textValue})`, "gi"), // case-insensitive & multiple matches
+          `<span style="background-color: yellow;">$1</span>`
+        );
       })
       console.log(rows);
       showProducts(rows);
