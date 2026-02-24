@@ -57,11 +57,11 @@ fetch("/products/getall",{
     .then((rows)=>{
       rows.forEach((row)=>{
         row.description = row.description.replace(
-          new RegExp(`(${textValue})`, "gi"), // case-insensitive & multiple matches
-          `<span style="background-color: yellow;">$1</span>`
+          new RegExp(`(${textValue})`, "gi"), 
+          `<span style="background-color: yellw;">$1</span>`
         );
         row.name = row.name.replace(
-          new RegExp(`(${textValue})`, "gi"), // case-insensitive & multiple matches
+          new RegExp(`(${textValue})`, "gi"), 
           `<span style="background-color: yellow;">$1</span>`
         );
       })
