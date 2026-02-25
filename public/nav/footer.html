@@ -29,6 +29,7 @@
     <a href = "">About</a>
     <a href = "">Events</a>
     <a href = "">Login</a>
+  </div>
   <div style = "flex : 1">
     <h1>Quick Links</h1>
     <a href = "">Privacy Policy</a>
@@ -36,8 +37,8 @@
     <a href = "">My Online Passport</a>
   </div>
   <div style = "flex : 1">
-    <h1>Social Media</h1>]
-    <div style = "display : flex; flex-direction: row;">
+    <h1>Social Media</h1>
+    <div style = "display : flex; flex-direction: row;gap : 10px">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M30 15.0559C30 6.73986 23.2852 0 15 0C6.71484 0 0 6.73986 0 15.0559C0 22.1133 4.8457 28.0416 11.3789 29.6707V19.655H8.28516V15.0559H11.3789V13.0739C11.3789 7.95138 13.6875 5.57538 18.7031 5.57538C19.6523 5.57538 21.293 5.76358 21.9668 5.95177V10.1157C21.6152 10.0804 21 10.0569 20.2324 10.0569C17.7715 10.0569 16.8223 10.992 16.8223 13.4209V15.0559H21.7207L20.877 19.655H16.8164V30C24.2461 29.1002 30 22.7544 30 15.0559Z" fill="white"/>
         </svg>
@@ -48,25 +49,30 @@
   </div>
 </div>
 <style>
-   .footer{
-        padding : 0px 5%;
+  .footer{
+        padding : 2% 5%;
         box-sizing: border-box;  
         width : 100%;
         height : 20%;
         display : flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;
-        font-size : 18;
+        align-items: flex-start;  
+        font-size : 12px;
+        background-color: #242424;
         font-family: 'Montserrat', sans-serif;
-        font-weight : 700;
         color : white;
     }
 
+   .footer a{
+      text-decoration: none;  /* removes underline */
+      color: inherit; 
+   }
    .footer > div{
         display : flex;
+        gap : 10px;
         flex-direction: column;
-        align-items: flex-start;
+        height : 100%;
         justify-content: center;
    }
     
