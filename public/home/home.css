@@ -1,3 +1,131 @@
-body{
-   
+*{
+    font-family: 'Montserrat', sans-serif; 
+}
+
+#hero{
+    height : 100vh;
+    width : 100%;
+    background-image: URL("./images/wallpaper.png");    
+    background-size: cover;   /* ensures the image covers the entire div */
+    background-position: center; /* centers the image */
+    background-repeat: no-repeat; /* prevents tiling */
+    border-radius: 0 0 100px 100px;
+    color : white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text-1{
+    display : flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.hero-text-1 > *{
+    margin : 0;
+    scroll-behavior: smooth;
+}
+
+h2,h1{
+    margin : 0;
+}
+
+#customise{
+    display : flex;
+    height : 90vh;
+    width : 100%;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+    gap : 50px; 
+}
+
+#about{
+    display : flex;
+    height : 150vh;
+    width : 100%;
+    flex-direction : row;
+    justify-content : center;
+    align-items : center;
+    gap : 50px; 
+}
+
+#events{
+    display : flex;
+    height : 100vh;
+    width : 100%;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+    gap : 50px; 
+}
+
+#contact{
+    display : flex;
+    height : 100vh;
+    width : 100%;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+    gap : 50px; 
+}
+
+.contact-button{
+    display: flex;
+    gap : 10%;
+    justify-content: center;  /* horizontal centering */
+    align-items: center;      /* vertical centering */
+    white-space: nowrap;
+    padding: 10px 20px;
+    border : none;
+    background-color : #EC3669;
+    font-weight : bold;
+    color : white;
+    border-radius: 100px;
+}
+
+.link-button{
+    display: flex;
+    gap : 10%;
+    justify-content: center;  /* horizontal centering */
+    align-items: center;      /* vertical centering */
+    white-space: nowrap;
+    padding: 10px 20px;
+    background-color: transparent;
+    border : 2px solid black;
+    font-weight : bold;
+    color : black;
+    border-radius: 100px;
+}
+
+.event-cards{
+    height : 100%;
+    background-color : black;
+    aspect-ratio: 1/1;
+}
+
+::-webkit-scrollbar {
+  width: 5px; 
+  height: 5px;  /* Width of vertical scrollbar */
+}
+
+/* Scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 6px;
+}
+
+/* Scrollbar thumb (draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #EC3669;
+  border-radius: 6px;
+  border: none; /* Creates padding effect */
+}
+
+/* Hover state */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
