@@ -116,7 +116,7 @@ body{
     gap : 5%;
     width : 100%;
     height : 30%;
-    background-image: URL("about-contact.png");
+    background-image: URL("/images/about-contact.png");
     background-repeat: no-repeat;
     background-position: right center;
     -webkit-mask-image: linear-gradient(
