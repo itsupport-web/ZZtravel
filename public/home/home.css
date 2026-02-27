@@ -1,3 +1,12 @@
+html,body{
+    scroll-snap-type: y mandatory; 
+    scroll-behavior: smooth;
+}
+
+body > div{
+    scroll-snap-align: start;
+}
+
 *{
     font-family: 'Montserrat', sans-serif; 
 }
@@ -5,7 +14,7 @@
 #hero{
     height : 100vh;
     width : 100%;
-    background-image: URL("/images/wallpaper.png");    
+    background-image: URL("./images/wallpaper.png");    
     background-size: cover;   /* ensures the image covers the entire div */
     background-position: center; /* centers the image */
     background-repeat: no-repeat; /* prevents tiling */
@@ -35,23 +44,33 @@ h2,h1{
 
 #customise{
     display : flex;
-    height : 90vh;
+    height : 100vh;
     width : 100%;
     flex-direction : column;
     justify-content : center;
     align-items : center;
     gap : 50px; 
+    view-timeline-name: --customiseTimeline;
+}
+
+#customise .contact-button{
+    animation: fadeBottom linear forwards;
+    animation-timeline: --customiseTimeline;
+    animation-range: entry 0% exit 100%;
+    animation-fill-mode: both;
 }
 
 #about{
     display : grid;
-    height : 90vh;
+    place-items: center;
+    height : 100vh;
     width : 100%;
     box-sizing: border-box;
     padding : 0 10%;
     grid-template-columns: 1fr 2fr; 
     grid-template-rows: 1fr; 
-    gap: 10px;        
+    gap: 10px;   
+    view-timeline-name: --aboutTimeline;
 }
 
 #about img{
@@ -59,6 +78,10 @@ h2,h1{
     height: 100%;      /* stretch vertically to fit grid cell */
     object-fit: cover;
     border-radius: 30px;
+    animation: popIn linear forwards;
+    animation-timeline: --aboutTimeline;
+    animation-range: entry 0% exit 100%;
+    animation-fill-mode: both;
 }
 
 .about-cards{
@@ -69,6 +92,10 @@ h2,h1{
     box-sizing: border-box;
     background-color: #FFF4F4;
     border-radius: 30px;   
+    animation: fadeBottom linear forwards;
+    animation-timeline: --aboutTimeline;
+    animation-range: entry 0% exit 100%;
+    animation-fill-mode: both;
 }
 
 #events{
@@ -78,7 +105,18 @@ h2,h1{
     flex-direction : column;
     justify-content : center;
     align-items : center;
-    gap : 50px; 
+    gap : 50px;     
+    padding : 10%; 
+    box-sizing: border-box;
+    view-timeline-name: --eventsTimeline;
+}
+
+.events-text{
+    max-width: 50%;
+    animation: fadeBottom linear forwards;
+    animation-timeline: --eventsTimeline;
+    animation-range: entry 0% exit 100%;
+    animation-fill-mode: both;
 }
 
 #contact{
@@ -89,7 +127,24 @@ h2,h1{
     justify-content : center;
     align-items : center;
     gap : 50px; 
+    view-timeline-name: --contactTimeline;
 }
+
+.contact-text{
+    animation: popIn linear forwards;
+    animation-timeline: --contactTimeline;
+    animation-range: entry 0% exit 100%;
+    animation-fill-mode: both;
+
+}
+
+#contact .contact-button{
+    animation: popIn linear forwards;
+    animation-timeline: --contactTimeline;
+    animation-range: entry 0% exit 100%;
+    animation-fill-mode: both;
+}
+
 
 .contact-button{
     display: flex;
@@ -146,4 +201,109 @@ h2,h1{
 /* Hover state */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.customise-title{
+    color : #EC3669;
+    font-size : 70px;
+    text-align: left;
+    animation: fadeLeft linear;
+    animation-timeline: --customiseTimeline;
+    animation-range: entry 0% exit 100%;
+    animation-fill-mode: both;
+}
+
+.customise-subtitle{
+    font-size : 40px;
+    text-align: right;
+    animation: fadeRight linear;
+    animation-timeline: --customiseTimeline;
+    animation-range: entry 0% exit 100%;
+    animation-fill-mode: both;
+}
+
+.customise-text{
+    font-size : 16px;
+    width : 30%;
+    text-align: center;
+    animation: fadeBottom linear;
+    animation-timeline: --customiseTimeline;
+    animation-range: entry 0% exit 100%;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeLeft {
+  20% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeRight {
+  20% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeBottom {
+  20% {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200px);
+    opacity: 0; 
+  }
+}
+
+@keyframes fadeTop {
+  20% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px);
+    opacity: 0; 
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
