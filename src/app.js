@@ -66,8 +66,6 @@ const s3 = new AWS.S3({
   secretAccessKey:"K006eUm3sfvLtg/Jip4kWwV+j3xYDRg",
 });
 
-const filePath = "/images/about-team.png"; // <-- your absolute path
-
 const file = await fetch(new URL("./images/about-team.png", import.meta.url));
 const blob = await file.blob();
 
