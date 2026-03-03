@@ -88,3 +88,33 @@ async function uploadFile(bucketId, filePath) {
 
 
 uploadFile("1e736fcdf4a2a1d592c00519", path.join(__dirname, '..', 'public', 'images', 'about-goals.png'));
+
+async function downloadFile() {
+  try {
+    await b2.authorize();
+
+    // File info
+    const bucketName = 'my-bucket';
+    const fileName = 'images/about-goals.png';
+
+    // Get file info
+    const fileInfo = await b2.getFileInfo({ fileId: await getFileId(bucketName, fileName) });
+    console.log('File info:', fileInfo.data);
+
+    // Get a download URL
+    const downloadUrl = b2.getDownloadUrlForFileName(bucketName, fileName);
+    console.log('Download URL:', downloadUrl);
+
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// Helper to get fileId (required for private download)
+async function getFileId(bucketName, fileName) {
+  const list = await b2.listFileNames({ bucketName });
+  const file = list.data.files.find(f => f.fileName === fileName);
+  return file.fileId;
+}
+
+downloadFile();
