@@ -89,26 +89,22 @@ async function uploadFile(bucketId, filePath) {
 
 uploadFile("1e736fcdf4a2a1d592c00519", path.join(__dirname, '..', 'public', 'images', 'about-goals.png'));
 
-async function downloadFile() {
+app.get('/images/:filename', async (req, res) => {
+  const fileName = `user-uploads/${req.params.filename}`;
+  await b2.authorize();
+
   try {
-    await b2.authorize();
+    const file = await b2.downloadFileByName({
+      bucketName: 'my-private-bucket',
+      fileName,
+    });
 
-    // File info
-    const bucketName = 'my-bucket';
-    const fileName = 'images/about-goals.png';
-
-    // Get file info
-    const fileInfo = await b2.getFileInfo({ fileId: await getFileId(bucketName, fileName) });
-    console.log('File info:', fileInfo.data);
-
-    // Get a download URL
-    const downloadUrl = b2.getDownloadUrlForFileName(bucketName, fileName);
-    console.log('Download URL:', downloadUrl);
-
+    res.set('Content-Type', file.headers['content-type'] || 'image/png');
+    res.send(file.data);
   } catch (err) {
-    console.error(err);
+    res.status(404).send('Image not found');
   }
-}
+});
 
 // Helper to get fileId (required for private download)
 async function getFileId(bucketName, fileName) {
@@ -116,5 +112,36 @@ async function getFileId(bucketName, fileName) {
   const file = list.data.files.find(f => f.fileName === fileName);
   return file.fileId;
 }
+
+async function deleteFile() {
+  try {
+    await b2.authorize();
+
+    // Step 1: Get the file info to find its fileId
+    const bucketName = 'my-private-bucket';
+    const fileName = 'images/about-goals.png';
+
+    const files = await b2.listFileNames({ bucketName });
+    const file = files.data.files.find(f => f.fileName === fileName);
+
+    if (!file) {
+      console.log('File not found');
+      return;
+    }
+
+    // Step 2: Delete the file
+    await b2.deleteFileVersion({
+      fileId: file.fileId,
+      fileName: file.fileName
+    });
+
+    console.log('File deleted successfully:', fileName);
+
+  } catch (err) {
+    console.error('Error deleting file:', err);
+  }
+}
+
+deleteFile();
 
 downloadFile();
