@@ -58,7 +58,7 @@ app.listen(3000, () => {
   console.log(`Server running on port ${3000}`);
 });
 
-const b2 = require('backblaze-b2');
+const B2 = require('backblaze-b2');
 const fs = require('fs');
 //https://f000.backblazeb2.com/file/<bucket-name>/<file-name>
 const b2 = new B2({
