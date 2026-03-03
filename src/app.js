@@ -58,26 +58,33 @@ app.listen(3000, () => {
   console.log(`Server running on port ${3000}`);
 });
 
-const B2 = require('backblaze-b2');
-
+const b2 = require('backblaze-b2');
+const fs = require('fs');
+//https://f000.backblazeb2.com/file/<bucket-name>/<file-name>
 const b2 = new B2({
   applicationKeyId: 'e3fd42152059',
   applicationKey: '006b79c98f8137d8bcd9be03b8c195f1897a2839fa'      // B2_APPLICATION_KEY
 });
 
-const params = {
-  Bucket: "zzdbimg",
-  Key: "test-image.jpg",          // name to use in B2
-  Body: "./images/about-team.png", // read file directly
-  ContentType: "image/jpeg",
-};
+async function uploadFile(bucketId, filePath) {
+  await b2.authorize();
+  // Step 1: Get upload URL
+  const uploadUrlResponse = await b2.getUploadUrl({ bucketId });
+  const { uploadUrl, authorizationToken } = uploadUrlResponse.data;
 
-// Upload the file
-s3.upload(params, (err, data) => {
-  if (err) {
-    console.error("Upload failed:", err);
-  } else {
-    console.log("Upload successful!");
-    console.log("File URL:", data.Location);
-  }
-});
+  // Step 2: Upload the file
+  const fileData = fs.readFileSync(filePath);
+  const fileName = filePath.split('/').pop();
+
+  const response = await b2.uploadFile({
+    uploadUrl,
+    uploadAuthToken: authorizationToken,
+    fileName,
+    data: fileData
+  });
+
+  console.log('File uploaded:', response.data.fileName);
+}
+
+
+uploadFile("1e736fcdf4a2a1d592c00519", 'images/about-goals.png');
