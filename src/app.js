@@ -65,3 +65,21 @@ const s3 = new AWS.S3({
   accessKeyId: "e3fd42152059",
   secretAccessKey:"K006eUm3sfvLtg/Jip4kWwV+j3xYDRg",
 });
+
+
+const params = {
+  Bucket: "zzdbimg",
+  Key: "test-image.jpg",          // name to use in B2
+  Body: "./images/about-team.png", // read file directly
+  ContentType: "image/jpeg",
+};
+
+// Upload the file
+s3.upload(params, (err, data) => {
+  if (err) {
+    console.error("Upload failed:", err);
+  } else {
+    console.log("Upload successful!");
+    console.log("File URL:", data.Location);
+  }
+});
