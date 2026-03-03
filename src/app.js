@@ -58,14 +58,12 @@ app.listen(3000, () => {
   console.log(`Server running on port ${3000}`);
 });
 
-const AWS = require("aws-sdk");
+const B2 = require('backblaze-b2');
 
-const s3 = new AWS.S3({
-  endpoint: "https://s3.eu-central-003.backblazeb2.com",
-  accessKeyId: "e3fd42152059",
-  secretAccessKey:"K006eUm3sfvLtg/Jip4kWwV+j3xYDRg",
+const b2 = new B2({
+  applicationKeyId: 'e3fd42152059',
+  applicationKey: '006b79c98f8137d8bcd9be03b8c195f1897a2839fa'      // B2_APPLICATION_KEY
 });
-
 
 const params = {
   Bucket: "zzdbimg",
