@@ -68,10 +68,13 @@ const s3 = new AWS.S3({
 
 const filePath = "/images/about-team.png"; // <-- your absolute path
 
+const file = await fetch(new URL("./images/about-team.png", import.meta.url));
+const blob = await file.blob();
+
 const params = {
   Bucket: "zzdbimg",
   Key: "test-image.jpg",          // name to use in B2
-  Body: fs.readFileSync(filePath), // read file directly
+  Body: blob, // read file directly
   ContentType: "image/jpeg",
 };
 
