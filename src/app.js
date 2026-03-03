@@ -87,4 +87,4 @@ async function uploadFile(bucketId, filePath) {
 }
 
 
-uploadFile("1e736fcdf4a2a1d592c00519", path.join(__dirname, 'public', 'images', 'about-goals.png'));
+uploadFile("1e736fcdf4a2a1d592c00519", path.join(__dirname, '..', 'public', 'images', 'about-goals.png'));
