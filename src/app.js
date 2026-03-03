@@ -57,3 +57,30 @@ app.use((req, res) => {
 app.listen(3000, () => {
   console.log(`Server running on port ${3000}`);
 });
+
+const AWS = require("aws-sdk");
+
+const s3 = new AWS.S3({
+  endpoint: "https://s3.eu-central-003.backblazeb2.com",
+  accessKeyId: "e3fd42152059",
+  secretAccessKey:"K006eUm3sfvLtg/Jip4kWwV+j3xYDRg",
+});
+
+const filePath = "/images/about-team.png"; // <-- your absolute path
+
+const params = {
+  Bucket: "zzdbimg",
+  Key: "test-image.jpg",          // name to use in B2
+  Body: fs.readFileSync(filePath), // read file directly
+  ContentType: "image/jpeg",
+};
+
+// Upload the file
+s3.upload(params, (err, data) => {
+  if (err) {
+    console.error("Upload failed:", err);
+  } else {
+    console.log("Upload successful!");
+    console.log("File URL:", data.Location);
+  }
+});
