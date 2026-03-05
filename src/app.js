@@ -134,7 +134,7 @@ async function deleteFile() {
     console.log('File deleted successfully:', fileName);
 
   } catch (err) {
-    console.error('Error deleting file:');
+    console.error('Error deleting file:', err);
   }
 }
 
