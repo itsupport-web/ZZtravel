@@ -111,7 +111,7 @@ async function deleteFile() {
     await b2.authorize();
 
     // Step 1: Get the file info to find its fileId
-    const bucketName = 'zzdbimg';
+    const bucketName = '1e736fcdf4a2a1d592c00519';
     const fileName = 'about-goals.png';
 
     const files = await b2.listFileNames({ bucketName });
