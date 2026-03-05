@@ -114,7 +114,7 @@ async function deleteFile() {
     const bucketId = '1e736fcdf4a2a1d592c00519';
     const fileName = 'about-goals.png';
 
-    const files = await bb2.listFileNames({
+    const files = await b2.listFileNames({
       bucketId,
       prefix: fileName
     })
