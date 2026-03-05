@@ -98,27 +98,20 @@ app.get('/images/:filename', async (req, res) => {
       bucketName: 'my-private-bucket',
       fileName,
     });
-
     res.set('Content-Type', file.headers['content-type'] || 'image/png');
     res.send(file.data);
+
   } catch (err) {
     res.status(404).send('Image not found');
   }
 });
-
-// Helper to get fileId (required for private download)
-async function getFileId(bucketName, fileName) {
-  const list = await b2.listFileNames({ bucketName });
-  const file = list.data.files.find(f => f.fileName === fileName);
-  return file.fileId;
-}
 
 async function deleteFile() {
   try {
     await b2.authorize();
 
     // Step 1: Get the file info to find its fileId
-    const bucketName = 'my-private-bucket';
+    const bucketName = 'zzdbimg';
     const fileName = 'images/about-goals.png';
 
     const files = await b2.listFileNames({ bucketName });
@@ -143,5 +136,3 @@ async function deleteFile() {
 }
 
 deleteFile();
-
-downloadFile();
