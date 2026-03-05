@@ -112,7 +112,7 @@ async function deleteFile() {
 
     // Step 1: Get the file info to find its fileId
     const bucketName = 'zzdbimg';
-    const fileName = 'images/about-goals.png';
+    const fileName = 'about-goals.png';
 
     const files = await b2.listFileNames({ bucketName });
     const file = files.data.files.find(f => f.fileName === fileName);
