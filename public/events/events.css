@@ -1,0 +1,91 @@
+*{
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.content{
+  display: flex;
+  width : 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding : 0 5%;
+}
+
+.title{
+  width : 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title h1,.title h2{
+  padding : 0;
+  margin : 0;
+}
+
+.navigationbar{
+  width : 100%;
+  height : 5vh;
+  display: flex;
+  background-color: grey;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.events{
+  display : flex;
+  flex-direction: column;
+  margin : 5vh 0 5vh 0;
+}
+
+.event-card{
+  width: 100%;
+  border-radius : 10px;
+  display : flex;
+  flex-direction : row;
+}
+
+.event-image{
+  flex : 1;
+  display: grid;
+  grid-template-columns: auto 1fr; /* left column for text, right for image */
+  align-items: center;         /* optional spacing */
+}
+
+.event-rotated-text {
+  writing-mode: vertical-rl;   /* rotate text vertically */
+  text-orientation: mixed;     /* ensures letters stay readable */
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: black;
+  background-color: white;
+}
+
+.event-image img{
+  object-fit: cover; 
+  height: 100%;
+  width : 100%;
+  display: block;
+}
+
+.event-content{
+  flex : 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.event-content h1, .event-content p{
+  text-align: left;
+}
+
+.event-date{
+  flex : 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-date > *{
+  font-weight: bold;
+  /* 70 20 20 */
+}

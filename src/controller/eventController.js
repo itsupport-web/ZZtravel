@@ -19,10 +19,8 @@ async function getAll(req,res){
 }
 
 async function getImage(req, res){
-  const fileId = req.params.fileId;
   try {
-    const file = await eventController.getImage(fileId);
-
+    const file = await eventController.getImage(req.body.fileId);
     res.send(file);
   } catch (err) {
     console.error(err);
