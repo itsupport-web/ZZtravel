@@ -21,7 +21,7 @@ async function showEvents(rows){
           <img src="/events/getimage?id=${event.image}">
         </div>
         <div class = "event-content">
-          <h1${event.title}</h1>
+          <h1>${event.title}</h1>
           <p>${event.description}</p>
         </div>
         <div class = "event-date">
