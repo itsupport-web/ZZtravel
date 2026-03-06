@@ -1,5 +1,6 @@
 const eventService = require('../service/events.js');
 const path = require('path');
+const sharp = require('sharp');
 
 async function getAll(req,res){
   try {
