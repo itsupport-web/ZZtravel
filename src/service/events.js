@@ -17,10 +17,7 @@ async function getImage(fileId){
 
   try {
     const file = await b2.downloadFileById({ fileId });
-    return {
-        data: file.data,
-        type: file.headers['content-type'] 
-    };
+    return file;
   } catch (err) {
     console.error(err);
   };
