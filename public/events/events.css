@@ -77,6 +77,8 @@
 
 .event-content h1, .event-content p{
   text-align: left;
+  padding :0;
+  margin : 0;
 }
 
 .event-date{

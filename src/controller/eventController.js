@@ -21,15 +21,8 @@ async function getAll(req,res){
 async function getImage(req, res){
   try {
     const file = await eventService.getImage(req.query.id);
-    res.set('Content-Type', file.type.split(';')[0]);
-    res.set('Cache-Control', 'no-store');
-    res.set('Pragma', 'no-cache');
-    res.set('Expires', '0');
-    console.log('Type of file.data:', typeof file.data);
-    console.log('Is Buffer?', Buffer.isBuffer(file.data));
-    console.log('Has pipe method?', file.data?.pipe ? true : false);
-    console.log('Constructor name:', file.data?.constructor?.name);
-    res.removeHeader('ETag');
+    const buffer = Buffer.from(file.data, 'binary');
+    res.send(buffer);
   } catch (err) {
     console.error("error getting image: ", err);
     res.status(404).send('Image not found');
