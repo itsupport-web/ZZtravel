@@ -24,7 +24,7 @@ async function getImage(req, res) {
     const file = await eventService.getImage(req.query.id);
     try {
         // Try to read the metadata — sharp will throw if it's invalid
-        const metadata = await sharp(file).metadata();
+        const metadata = await sharp(file.data).metadata();
         console.log("Image metadata:", metadata);
         return true;
     } catch (err) {
