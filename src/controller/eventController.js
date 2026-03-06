@@ -25,7 +25,10 @@ async function getImage(req, res){
     res.set('Cache-Control', 'no-store');
     res.set('Pragma', 'no-cache');
     res.set('Expires', '0');
-    console.log('Is Buffer:', Buffer.isBuffer(file.data));
+    console.log('Type of file.data:', typeof file.data);
+    console.log('Is Buffer?', Buffer.isBuffer(file.data));
+    console.log('Has pipe method?', file.data?.pipe ? true : false);
+    console.log('Constructor name:', file.data?.constructor?.name);
     res.removeHeader('ETag');
   } catch (err) {
     console.error("error getting image: ", err);
