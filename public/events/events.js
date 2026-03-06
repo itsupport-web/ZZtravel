@@ -13,13 +13,12 @@ async function showEvents(rows){
   }
   rows.forEach(async (event) => {
     const dateArray = formatDateString(event.event_date);
-    const imageSource = await requestImage(event.image);
     const el = document.createElement("div");
     el.classList.add("event-card");
     el.innerHTML = `
         <div class = "event-image">
           <p class = "event-rotated-text">${event.status}<p>
-          <img src = "${imageSource}">
+          <img src="/events/getimage?id=${event.image}">
         </div>
         <div class = "event-content">
           <h1${event.title}</h1>
@@ -33,15 +32,6 @@ async function showEvents(rows){
       `;
     document.getElementById("events").appendChild(el);
   });
-}
-
-
-async function requestImage(id){
-  fetch("/events/getimage", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-        body: {fileId : JSON.stringify({ id })}
-    });
 }
 
 function formatDateString(dateStr){

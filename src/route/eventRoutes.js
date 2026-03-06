@@ -13,6 +13,6 @@ router.post("/delete", eventController.deleteEvent);
 
 router.post("/filter", eventController.filterEvent);
 
-router.post("/getimage", eventController.getImage);
+router.get("/getimage", eventController.getImage);
 
 module.exports = router;

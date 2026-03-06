@@ -20,7 +20,11 @@ async function getAll(req,res){
 
 async function getImage(req, res){
   try {
-    const file = await eventController.getImage(req.body.fileId);
+    const file = await eventController.getImage(req.query.id);
+    const contentType = file.headers['content-type'];
+    if (contentType) {
+      res.set('Content-Type', contentType);
+    }
     res.send(file);
   } catch (err) {
     console.error("error getting image: ", err);
