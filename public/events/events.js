@@ -11,13 +11,13 @@ async function showEvents(rows){
     document.getElementById("events").innerHTML = "No Events Yet";
     return;
   }
-  rows.forEach(async (event) => {
+  rows.forEach((event) => {
     const dateArray = formatDateString(event.event_date);
     const el = document.createElement("div");
     el.classList.add("event-card");
     el.innerHTML = `
         <div class = "event-image">
-          <p class = "event-rotated-text">${event.status}<p>
+          <p class = "event-rotated-text">${event.status}</p>
           <img src="/events/getimage?id=${event.image}">
         </div>
         <div class = "event-content">
