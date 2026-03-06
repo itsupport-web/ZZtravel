@@ -53,7 +53,7 @@ app.get('/signin/index.html', (req, res)=> {
 
 app.use(express.static("public"));
 
-app.use((res) => {
+app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, '../public', 'notfound.html'));
 });
 
