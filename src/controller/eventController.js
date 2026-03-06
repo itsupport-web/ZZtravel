@@ -23,8 +23,8 @@ async function getImage(req, res){
     const file = await eventController.getImage(req.body.fileId);
     res.send(file);
   } catch (err) {
-    console.error(err);
-    res.status(404).send('Image not found');
+    console.error("error getting image: ", err);
+    res.send('Image not found');
   };
 }
 

@@ -37,7 +37,7 @@ async function showEvents(rows){
 
 
 async function requestImage(id){
-  fetch("https://zztravel.onrender.com/events/getimage", {
+  fetch("/events/getimage", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
         body: {fileId : JSON.stringify({ id })}
