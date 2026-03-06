@@ -83,11 +83,11 @@ async function uploadFile(bucketId, filePath) {
     data: fileData
   });
 
-  console.log('File uploaded:', response.data.fileName);
+  console.log('File uploaded:', response.data.fileId);
 }
 
 
-// uploadFile("1e736fcdf4a2a1d592c00519", path.join(__dirname, '..', 'public', 'images', 'about-goals.png'));
+uploadFile("1e736fcdf4a2a1d592c00519", path.join(__dirname, '..', 'public', 'images', 'about-goals.png'));
 
 app.get('/images/:filename', async (req, res) => {
   const fileName = `user-uploads/${req.params.filename}`;
@@ -138,4 +138,4 @@ async function deleteFile() {
   }
 }
 
-deleteFile();
+//deleteFile();
