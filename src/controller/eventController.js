@@ -21,7 +21,7 @@ async function getAll(req,res){
 async function getImage(req, res){
   try {
     const file = await eventService.getImage(req.query.id);
-    res.set('Content-Type', file.type);
+    res.set('Content-Type', file.type.split(';')[0]);
     res.set('Cache-Control', 'no-store');
     res.set('Pragma', 'no-cache');
     res.set('Expires', '0');
