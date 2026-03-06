@@ -87,22 +87,7 @@ async function uploadFile(bucketId, filePath) {
 
 //uploadFile("1e736fcdf4a2a1d592c00519", path.join(__dirname, '..', 'public', 'images', 'about-goals.png'));
 
-app.get('/images/:filename', async (req, res) => {
-  const fileName = `user-uploads/${req.params.filename}`;
-  await b2.authorize();
 
-  try {
-    const file = await b2.downloadFileByName({
-      bucketName: 'my-private-bucket',
-      fileName,
-    });
-    res.set('Content-Type', file.headers['content-type'] || 'image/png');
-    res.send(file.data);
-
-  } catch (err) {
-    res.status(404).send('Image not found');
-  }
-});
 
 async function deleteFile() {
   try {
