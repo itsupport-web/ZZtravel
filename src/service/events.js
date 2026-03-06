@@ -27,7 +27,6 @@ async function getImage(fileId){
 
   } catch (err) {
     console.error(err);
-    res.status(404).send('Image not found');
   };
 }
 
