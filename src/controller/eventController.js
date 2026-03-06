@@ -1,6 +1,5 @@
 const eventService = require('../service/events.js');
 const path = require('path');
-const sharp = require('sharp');
 
 async function getAll(req,res){
   try {
@@ -19,22 +18,15 @@ async function getAll(req,res){
   }
 }
 
-async function getImage(req, res) {
+async function getImage(req, res){
   try {
     const file = await eventService.getImage(req.query.id);
-    try {
-        // Try to read the metadata — sharp will throw if it's invalid
-        const metadata = await sharp(file.data).metadata();
-        console.log("Image metadata:", metadata);
-        return true;
-    } catch (err) {
-        console.error("Invalid image:", err.message);
-        return false;
-    }
+    const buffer = Buffer.from(file.data, 'binary');
+    file.data.pipe(res);
   } catch (err) {
     console.error("error getting image: ", err);
     res.status(404).send('Image not found');
-  }
+  };
 }
 
 async function updateEvent(req,res){
