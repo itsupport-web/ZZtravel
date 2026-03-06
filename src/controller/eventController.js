@@ -21,11 +21,8 @@ async function getAll(req,res){
 async function getImage(req, res){
   try {
     const file = await eventController.getImage(req.query.id);
-    const contentType = file.headers['content-type'];
-    if (contentType) {
-      res.set('Content-Type', contentType);
-    }
-    res.send(file);
+    res.set('Content-Type', file.type);
+    res.send(file.data);
   } catch (err) {
     console.error("error getting image: ", err);
     res.send('Image not found');
