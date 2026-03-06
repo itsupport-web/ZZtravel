@@ -19,7 +19,7 @@ const productRoutes = require('./route/productRoutes');
 app.use('/products', productRoutes);
 
 const eventRoutes = require('./route/eventRoutes'); 
-app.use('/event', eventRoutes);
+app.use('/events', eventRoutes);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/home/index.html'));

@@ -1,4 +1,4 @@
-fetch("/event/getall",{
+fetch("/events/getall",{
   method: "POST"})
   .then(res => res.json())
   .then(rows => {
