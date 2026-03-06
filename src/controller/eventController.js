@@ -25,6 +25,7 @@ async function getImage(req, res){
     res.set('Cache-Control', 'no-store');
     res.set('Pragma', 'no-cache');
     res.set('Expires', '0');
+    console.log('Is Buffer:', Buffer.isBuffer(file.data));
     res.removeHeader('ETag');
     res.send(file.data);
   } catch (err) {
