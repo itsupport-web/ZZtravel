@@ -27,7 +27,6 @@ async function getImage(req, res){
     res.set('Expires', '0');
     console.log('Is Buffer:', Buffer.isBuffer(file.data));
     res.removeHeader('ETag');
-    res.send(file.data);
   } catch (err) {
     console.error("error getting image: ", err);
     res.status(404).send('Image not found');
