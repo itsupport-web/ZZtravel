@@ -11,7 +11,7 @@ async function getAll() {
   }
 }
 
-async function getLatestID(req,res){
+async function getLatestID(){
   const query = `SELECT id FROM customer ORDER BY id DESC LIMIT 1;`;
     try {
       const result = await pool.query(query);

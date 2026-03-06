@@ -18,6 +18,9 @@ app.use('/users', userRoutes);
 const productRoutes = require('./route/productRoutes'); 
 app.use('/products', productRoutes);
 
+const eventRoutes = require('./route/eventRoutes'); 
+app.use('/event', eventRoutes);
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/home/index.html'));
 });
@@ -50,7 +53,7 @@ app.get('/signin/index.html', (req, res)=> {
 
 app.use(express.static("public"));
 
-app.use((req, res) => {
+app.use((res) => {
   res.status(404).sendFile(path.join(__dirname, '../public', 'notfound.html'));
 });
 
@@ -61,11 +64,6 @@ app.listen(3000, () => {
 const B2 = require('backblaze-b2');
 const fs = require('fs');
 //https://f000.backblazeb2.com/file/<bucket-name>/<file-name>
-const b2 = new B2({
-  applicationKeyId: 'e3fd42152059',
-  applicationKey: '006b79c98f8137d8bcd9be03b8c195f1897a2839fa'      // B2_APPLICATION_KEY
-});
-
 async function uploadFile(bucketId, filePath) {
   await b2.authorize();
   // Step 1: Get upload URL
@@ -87,7 +85,7 @@ async function uploadFile(bucketId, filePath) {
 }
 
 
-uploadFile("1e736fcdf4a2a1d592c00519", path.join(__dirname, '..', 'public', 'images', 'about-goals.png'));
+//uploadFile("1e736fcdf4a2a1d592c00519", path.join(__dirname, '..', 'public', 'images', 'about-goals.png'));
 
 app.get('/images/:filename', async (req, res) => {
   const fileName = `user-uploads/${req.params.filename}`;
