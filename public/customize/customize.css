@@ -146,18 +146,23 @@
   display: flex;
   flex-direction: row;
   border-radius: 20px;
-  padding : 10px;
   background-color: #FFF4F4;
   height : 100%;
   animation: fadeBottom linear;
   animation-timeline: --plannersTimeline;
   animation-range: entry 0% exit 100%;
+  gap: 10%;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 5%;
+  white-space: nowrap;
 }
 
 .planners img{
   border-radius: 50%;
   object-fit: contain;
-  height : 100%;
+  height : 50%;
 }
 
 @keyframes fadeBottom {
