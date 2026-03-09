@@ -20,8 +20,10 @@ async function getAll(req,res){
 
 async function getImage(req, res){
   try {
+
     const file = await eventService.getImage(req.query.id);
-    const buffer = Buffer.from(file.data, 'binary');
+
+    res.set(file.headers);
     file.data.pipe(res);
   } catch (err) {
     console.error("error getting image: ", err);

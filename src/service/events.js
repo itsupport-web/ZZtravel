@@ -14,10 +14,11 @@ async function getAll() {
 
 async function getImage(fileId){
   await b2.authorize();
-
   try {
-    const file = await b2.downloadFileById({ fileId });
-    return file;
+    return b2.downloadFileById({
+      fileId,
+      responseType: "stream"
+    });
   } catch (err) {
     console.error(err);
   };
