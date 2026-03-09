@@ -122,6 +122,10 @@
     border-radius: 100px;
 }
 
+.contact-button:hover{
+  background-color: #932141;    
+}
+
 .planners{
   display: flex;
   flex-direction: column;
