@@ -30,6 +30,7 @@ fetch("/events/getall",{
       info.style.width = "100%";
       info.style.height = "50%";
       info.style.justifyContent = "flex-start";
+      info.style.paddingLeft = "10%";
 
       const date = document.createElement("div");
       date.classList.add("flex-column");
