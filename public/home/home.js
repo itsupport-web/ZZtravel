@@ -28,6 +28,7 @@ fetch("/events/getall",{
       info.style.marginTop = "auto";
       info.style.backgroundColor = "white";
       info.style.width = "100%";
+      info.style.height = "50%";
 
       const date = document.createElement("div");
       date.classList.add("flex-column");
