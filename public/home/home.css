@@ -152,7 +152,6 @@ h2,h1{
     justify-content: center;  /* horizontal centering */
     align-items: center;      /* vertical centering */
     white-space: nowrap;
-    padding: 10px 20px;
     border : none;
     background-color : #EC3669;
     font-weight : bold;
