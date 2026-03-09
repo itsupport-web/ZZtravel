@@ -137,6 +137,7 @@
   display: flex;
   flex-direction: row;
   gap : 10%;
+  height : 10%;
   justify-content: center;
   align-items: center;
 }
@@ -147,7 +148,7 @@
   border-radius: 20px;
   padding : 10px;
   background-color: #FFF4F4;
-  height : 10%;
+  height : 100%;
   animation: fadeBottom linear;
   animation-timeline: --plannersTimeline;
   animation-range: entry 0% exit 100%;
