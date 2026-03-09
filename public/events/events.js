@@ -25,8 +25,8 @@ async function showEvents(rows){
           <p>${event.description}</p>
         </div>
         <div class = "event-date">
-          <h1 style = "font-size : 20px">${dateArray[0]}</h1>
-          <h1 style = "font-size : 70px ; color :#EC3669">${dateArray[1]}</h1>
+          <h1 style = "font-size : 20px">${dateArray[1]}</h1>
+          <h1 style = "font-size : 70px ; color :#EC3669">${dateArray[0]}</h1>
           <h1 style = "font-size : 20px">${dateArray[2]}</h1>
         </div>
       `;

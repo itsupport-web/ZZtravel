@@ -36,6 +36,7 @@
   flex-direction: column;
   margin : 5vh 0 5vh 0;
   min-height : 80vh;
+  gap : 10px;
 }
 
 .event-card{
@@ -50,6 +51,7 @@
   display: grid;
   grid-template-columns: auto 1fr; /* left column for text, right for image */
   align-items: center;         /* optional spacing */
+  border-radius: 10px;
 }
 
 .event-rotated-text {
@@ -74,6 +76,8 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  box-sizing: border-box;
+  padding-left: 5%;
 }
 
 .event-date h1, .event-date p{
