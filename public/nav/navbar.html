@@ -41,6 +41,7 @@
 </div>
 <style>
    .topbar{
+        opacity :0;
         z-index : 10;
         padding : 0px 5%;
         box-sizing: border-box;  
@@ -58,8 +59,12 @@
         font-family: 'Montserrat', sans-serif;
         font-weight : 700;
         color : white;
+        transition: all 0.3s ease;
     }
 
+    .topbar:hover{
+      opacity: 1;
+    }
     .topbarboxes{ 
         gap : 30%;  
         height : 100%;
