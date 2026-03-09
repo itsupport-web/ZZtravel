@@ -187,9 +187,9 @@ h2,h1{
 }
 
 .event-cards{
-    height : 100%;
-    background-color : black;
-    aspect-ratio: 1/1;
+  height : 100%;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar {
