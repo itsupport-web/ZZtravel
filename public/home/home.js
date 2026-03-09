@@ -21,13 +21,14 @@ fetch("/events/getall",{
       const eventCard = document.createElement("div");
       eventCard.classList.add("flex-column");
       eventCard.style.backgroundImage = `url(/events/getimage?id=${event.image})`;
-      eventCard.borderRadius = "10px";
+      eventCard.style.borderRadius = "10px";
       eventCard.style.width = "40vw";
 
       const info = document.createElement("div");
       info.classList.add("flex-row");
       info.style.marginTop = "auto";
       info.style.backgroundColor = "white";
+      info.style.width = "100%";
 
       const date = document.createElement("div");
       date.classList.add("flex-column");
