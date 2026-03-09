@@ -105,7 +105,6 @@
 }
 
 .contact-button{
-    opacity: 0;
     animation: fadeBottom linear;
     animation-timeline: --plannersTimeline;
     animation-range: entry 0% exit 100%;
