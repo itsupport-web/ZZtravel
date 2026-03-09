@@ -1,11 +1,7 @@
 const { Pool } = require("pg");
 
 const pool = new Pool({
-  host: "dpg-d61fi8ogjchc73fepf70-a",       // e.g., db-abc123.render.com
-  port: 5432,
-  user: "zzdb_user",
-  password: "fvFdggiTgl3Lr0w4DmCoS0KBmjuNfA50",
-  database: "zzdb",
+  connectionString: "postgresql://postgres:Supabaseathrotech!234@db.hpomndjulyqrppczgnwt.supabase.co:5432/postgres",
   ssl: { rejectUnauthorized: false } // required for Render
 });
 
