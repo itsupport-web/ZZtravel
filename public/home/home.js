@@ -22,7 +22,8 @@ fetch("/events/getall",{
       eventCard.classList.add("flex-column");
       eventCard.style.backgroundImage = `url(/events/getimage?id=${event.image})`;
       eventCard.style.borderRadius = "10px";
-      eventCard.style.width = "40vw";
+      eventCard.style.height = "100%";
+      eventCard.style.aspectRatio = "1:1";
 
       const info = document.createElement("div");
       info.classList.add("flex-row");
