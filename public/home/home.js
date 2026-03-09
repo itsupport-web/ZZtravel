@@ -41,6 +41,7 @@ fetch("/events/getall",{
 
       const content = document.createElement("div");
       content.classList.add("flex-column");
+      content.style.alignItems = "flex-start";
       content.innerHTML =
       `
         <h1 style = "font-size : 20px; white-space : nowrap">${event.title}</h1>
