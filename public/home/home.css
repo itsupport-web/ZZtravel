@@ -191,6 +191,9 @@ h2,h1{
   height : 100%;
   aspect-ratio: 1/1;
   border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
 }
 
 ::-webkit-scrollbar {
