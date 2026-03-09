@@ -42,8 +42,8 @@ fetch("/events/getall",{
       content.classList.add("flex-column");
       content.innerHTML =
       `
-        <h1 style = "font-size : 20px; white-space : nowrap>${event.title}</h1>
-        <p> style = "font-size : 16px"${event.description}</p>
+        <h1 style = "font-size : 20px; white-space : nowrap">${event.title}</h1>
+        <p style = "font-size : 16px">${event.description}</p>
       `
 
       info.append(date, content);
