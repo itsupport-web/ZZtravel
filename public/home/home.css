@@ -244,6 +244,13 @@ h2,h1{
     animation-fill-mode: both;
 }
 
+#eventlist{
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  gap: 10%;
+}
+
 @keyframes fadeLeft {
   20% {
     transform: translateX(-200px);
