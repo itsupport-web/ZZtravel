@@ -29,7 +29,7 @@ fetch("/events/getall",{
       info.style.backgroundColor = "white";
       info.style.width = "100%";
       info.style.height = "50%";
-      info.style.alignItems = "flex-start";
+      info.style.justifyContent = "flex-start";
 
       const date = document.createElement("div");
       date.classList.add("flex-column");
