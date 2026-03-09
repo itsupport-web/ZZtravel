@@ -1,9 +1,14 @@
 const { Pool } = require("pg");
 
 const pool = new Pool({
-  connectionString: "postgresql://postgres:Supabaseathrotech!234@db.hpomndjulyqrppczgnwt.supabase.co:5432/postgres",
-  ssl: { rejectUnauthorized: false } // required for Render
-});
+  user: "postgres",
+  password: "AbCde!234",
+  host: "db.hpomndjulyqrppczgnwt.supabase.co", // IPv4 address
+  database: "postgres",
+  port: 5432,
+  ssl: { rejectUnauthorized: false }
+}); 
+
 
 pool.query("SELECT NOW()", (err, res) => {
   if (err) {
@@ -14,3 +19,4 @@ pool.query("SELECT NOW()", (err, res) => {
 });
 
 module.exports = pool;
+
