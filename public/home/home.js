@@ -4,3 +4,53 @@ eventList.addEventListener('wheel', (e) => {
   e.preventDefault();
   eventList.scrollLeft += e.deltaY;
 });
+
+fetch("/events/getall",{
+  method: "POST"})
+  .then(res => res.json())
+  .then(rows => {
+    eventList.innerHTML = "";
+    if(rows.length == 0){
+      document.getElementById("events").innerHTML = "No Events Yet";
+      return;
+    }
+    for(let i = 0; i < 4; i++){
+      const event = rows[i];
+      const dateArray = formatDateString(event.event_date);
+      
+      const eventCard = document.createElement("div");
+      eventCard.style.backgroundImage = `url(/events/getimage?id=${event.image})`;
+      eventCard.borderRadius = "10px";
+
+      const info = document.createElement("div");
+      info.classList.add("flex-row");
+      info.marginTop = "auto";
+
+      const date = document.createElement("div");
+      date.innerHTML = 
+      `
+        <h1 style = "font-size : 20px">${dateArray[1]}</h1>
+        <h1 style = "font-size : 70px ; color :#EC3669">${dateArray[0]}</h1>
+        <h1 style = "font-size : 20px">${dateArray[2]}</h1>
+      `
+
+      const content = document.getElementById("content");
+      content.classList.add("flex-column");
+      content.innerHTML =
+      `
+        <h1>${event.title}</h1>
+        <h1>${event.description}</h1>
+      `
+
+      info.appendChild(date, content);
+      eventCard.appendChild(info);
+      eventList.appendChild(eventCard);
+    }
+});
+
+function formatDateString(dateStr){
+  const date = new Date(dateStr);
+  const formatted = [date.getDate().toString().padStart(2, "0"),date.toLocaleString("en-US", { month: "short" }).toUpperCase(),date.getFullYear()]
+
+  return formatted;
+}
