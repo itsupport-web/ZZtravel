@@ -106,8 +106,8 @@
 
 .contact-button{
     opacity: 0;
-    animation: fadeBottom linear forwards;
-    animation-timeline: view();
+    animation: fadeBottom linear;
+    animation-timeline: --plannersTimeline;
     animation-range: entry 0% exit 100%;
     animation-fill-mode: both;
     display: flex;
@@ -127,7 +127,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  view-timeline-name: --customiseTimeline;
   width : 100%;
+  height : 100vh;
   gap : 10vh;
 }
 
@@ -145,6 +147,16 @@
   border-radius: 20px;
   padding : 10px;
   background-color: #FFF4F4;
+  height : 10%;
+  animation: fadeBottom linear;
+  animation-timeline: --plannersTimeline;
+  animation-range: entry 0% exit 100%;
+}
+
+.planners img{
+  border-radius: 50%;
+  object-fit: contain;
+  height : 100%;
 }
 
 @keyframes fadeBottom {
