@@ -140,10 +140,11 @@ body{
     font-weight : bold;
     color : white;
     border-radius: 100px;
+    text-decoration: none;
 }
 
 .contact-button:hover{
-  background-color: #932141;    
+    background-color: #932141;    
 }
 
 .nav{
