@@ -61,6 +61,8 @@
   font-size: 1.5rem;
   color: black;
   background-color: white;
+  padding : 1%;
+  transform: rotate(90deg);
 }
 
 .event-image img{
@@ -68,6 +70,7 @@
   height: 100%;
   width : 100%;
   display: block;
+  border-radius: 10px;
 }
 
 .event-content{
