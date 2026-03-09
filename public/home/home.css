@@ -69,6 +69,7 @@ h2,h1{
     grid-template-columns: 1fr 2fr; 
     grid-template-rows: 1fr; 
     gap: 10px;   
+    align-items: center;
     view-timeline-name: --aboutTimeline;
 }
 
@@ -87,7 +88,6 @@ h2,h1{
     width: 100%;       /* stretch horizontally to fit grid cell */
     height: 100%; 
     padding : 5%;
-    font-size: 20px;
     box-sizing: border-box;
     background-color: #FFF4F4;
     border-radius: 30px;   
