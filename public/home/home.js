@@ -19,12 +19,15 @@ fetch("/events/getall",{
       const dateArray = formatDateString(event.event_date);
       
       const eventCard = document.createElement("div");
+      eventCard.classList.add("flex-column");
       eventCard.style.backgroundImage = `url(/events/getimage?id=${event.image})`;
       eventCard.borderRadius = "10px";
+      eventCard.style.width = "40vw";
 
       const info = document.createElement("div");
       info.classList.add("flex-row");
-      info.marginTop = "auto";
+      info.style.marginTop = "auto";
+      info.style.backgroundColor = "white";
 
       const date = document.createElement("div");
       date.innerHTML = 
@@ -39,10 +42,10 @@ fetch("/events/getall",{
       content.innerHTML =
       `
         <h1>${event.title}</h1>
-        <h1>${event.description}</h1>
+        <p>${event.description}</p>
       `
 
-      info.appendChild(date, content);
+      info.append(date, content);
       eventCard.appendChild(info);
       eventList.appendChild(eventCard);
     }
