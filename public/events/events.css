@@ -81,6 +81,9 @@
   justify-content: center;
   box-sizing: border-box;
   padding-left: 5%;
+  white-space: nowrap;     /* prevent wrapping */
+  overflow: hidden;        /* hide overflowing text */
+  text-overflow: ellipsis;
 }
 
 .event-date h1, .event-date p{
