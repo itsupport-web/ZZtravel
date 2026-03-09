@@ -76,7 +76,7 @@
   justify-content: center;
 }
 
-.event-content h1, .event-content p{
+.event-date h1, .event-date p{
   text-align: left;
   padding :0;
   margin : 0;
