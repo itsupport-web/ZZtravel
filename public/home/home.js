@@ -30,6 +30,7 @@ fetch("/events/getall",{
       info.style.backgroundColor = "white";
 
       const date = document.createElement("div");
+      date.classList.add("flex-column");
       date.innerHTML = 
       `
         <h1 style = "font-size : 20px">${dateArray[1]}</h1>
