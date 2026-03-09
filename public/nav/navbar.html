@@ -97,15 +97,22 @@
 <script>
   const topbar = document.getElementById("topbar")
 
-  topbar.addEventListener("mouseover", ()=>{
-    if(window.matchMedia("(pointer: coarse)").matches) {
-      setTimeout(() => {
-        topbar.style.opacity = 0;
-      }, 3000);
-    }
+  topbar.addEventListener("focus", ()=>{
+      fade();
   })
 
   topbar.addEventListener("blur", ()=>{
     topbar.style.opacity = 0;
   })
+
+  document.addEventListener("scroll",()=>{
+    topbar.style.opacity = 1;
+    fade();
+  })
+
+  function fade(){
+    setTimeout(() => {
+        topbar.style.opacity = 0;
+    }, 3000);
+  }
 </script>
