@@ -34,7 +34,7 @@ fetch("/events/getall",{
         <h1 style = "font-size : 20px">${dateArray[2]}</h1>
       `
 
-      const content = document.getElementById("content");
+      const content = document.createElement("div");
       content.classList.add("flex-column");
       content.innerHTML =
       `
