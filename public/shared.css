@@ -1,5 +1,8 @@
 :root {
   --main-color: #77c9ff;
+  --title: 5rem;
+  --sub-title: 2.5rem;
+  --text: 1rem; 
 }
 
 body{
