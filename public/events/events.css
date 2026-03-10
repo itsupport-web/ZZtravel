@@ -27,12 +27,12 @@
   height : 5vh;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  justify-content: flex-end;
   gap : 5%;
 }
 
-.navigationbar > svg{
-  border-radius: 50%;
+.navigationbar > *{
+  border-radius: 100%;
   border : 2px solid black;
 }
 
@@ -60,6 +60,7 @@
 #searchbar{
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 }
 
 .events{
