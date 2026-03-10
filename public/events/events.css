@@ -26,9 +26,40 @@
   width : 100%;
   height : 5vh;
   display: flex;
-  background-color: grey;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-end;
+  gap : 5%;
+}
+
+.navigationbar > svg{
+  border-radius: 50%;
+  border : 2px solid black;
+}
+
+.link-button{
+    display: flex;
+    gap : 10%;
+    justify-content: center;  /* horizontal centering */
+    align-items: center;      /* vertical centering */
+    white-space: nowrap;
+    padding: 10px 20px;
+    background-color: transparent;
+    border : 2px solid black;
+    font-weight : bold;
+    color : black;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.link-button:focus{
+    background-color: black;
+    color : white;
+}
+
+#searchbar{
+  display: flex;
+  flex-direction: row;
 }
 
 .events{
