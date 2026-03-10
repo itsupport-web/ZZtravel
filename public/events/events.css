@@ -47,6 +47,10 @@
   height : 40vh;
 }
 
+.event-card:hover{
+  background-color: rgb(160, 160, 160);
+}
+
 .event-image{
   flex : 1;
   display: flex;
