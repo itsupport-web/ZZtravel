@@ -147,7 +147,7 @@ h2,h1{
 
 .contact-button{
     display: flex;
-    font-size : 1rem;
+    font-size : var(--text);
     gap : 10%;
     justify-content: center;  /* horizontal centering */
     align-items: center;      /* vertical centering */
@@ -176,6 +176,7 @@ h2,h1{
     background-color: transparent;
     border : 2px solid black;
     font-weight : bold;
+    font-size : var(--text);
     color : black;
     border-radius: 100px;
     transition: all 0.3s ease;
@@ -239,7 +240,7 @@ h2,h1{
 }
 
 .customise-text{
-    font-size : 1rem;
+    font-size : var(--text);
     width : 30%;
     text-align: center;
     animation: fadeBottom linear;
