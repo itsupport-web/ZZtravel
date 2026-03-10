@@ -88,6 +88,7 @@ h2,h1{
     width: 100%;       /* stretch horizontally to fit grid cell */
     height: 100%; 
     padding : 5%;
+    font-size: 1vw;
     box-sizing: border-box;
     background-color: #FFF4F4;
     border-radius: 30px;   
@@ -192,6 +193,7 @@ h2,h1{
   height : 100%;
   aspect-ratio: 1/1;
   border-radius: 10px;
+  font-size: 1vw;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; 
