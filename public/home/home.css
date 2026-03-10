@@ -177,7 +177,6 @@ h2,h1{
     background-color: transparent;
     border : 2px solid black;
     font-weight : bold;
-    font-size : var(--text);
     color : black;
     border-radius: 100px;
     transition: all 0.3s ease;
