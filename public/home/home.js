@@ -43,11 +43,11 @@ fetch("/events/getall",{
 
       const content = document.createElement("div");
       content.classList.add("flex-column");
-      content.style.alignItems = "flex-start";
+      content.classList.add("event-card-content");
       content.innerHTML =
       `
-        <h1 style = "font-size : 1.4em; white-space : nowrap">${event.title}</h1>
-        <p style = "font-size : 1rem">${event.description}</p>
+        <h1 style = "white-space : nowrap;text-overflow : ellipsis;">${event.title}</h1>
+        <p style = "text-overflow : ellipsis; ">${event.description}</p>
       `
 
       info.append(date, content);

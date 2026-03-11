@@ -197,6 +197,12 @@ h2,h1{
   background-position: center; 
 }
 
+.event-card-content{
+  align-items : flex-start;
+  justify-content : flex-start;
+  padding : 5%;
+}
+
 ::-webkit-scrollbar {
   width: 5px; 
   height: 5px;  /* Width of vertical scrollbar */
