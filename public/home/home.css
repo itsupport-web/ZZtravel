@@ -197,12 +197,11 @@ h2,h1{
 }
 
 .event-card-content{
-  display: -webkit-box;        /* necessary for line clamping */
-  -webkit-line-clamp: 3;       /* number of lines to show */
-  -webkit-box-orient: vertical;
+  align-items : flex-start !important;
+  justify-content : flex-start !important;
   box-sizing : border-box;
   padding : 5%;
-  height : 3rem;
+  height : 100%;
 }
 
 ::-webkit-scrollbar {
