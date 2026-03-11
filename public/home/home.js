@@ -36,9 +36,9 @@ fetch("/events/getall",{
       date.classList.add("flex-column");
       date.innerHTML = 
       `
-        <h1 style = "font-size : 0.5rem">${dateArray[1]}</h1>
-        <h1 style = "font-size : 1rem; color :#EC3669">${dateArray[0]}</h1>
-        <h1 style = "font-size : 0.5rem">${dateArray[2]}</h1>
+        <h1 style = "font-size : 1rem">${dateArray[1]}</h1>
+        <h1 style = "font-size : 2rem; color :#EC3669">${dateArray[0]}</h1>
+        <h1 style = "font-size : 1rem">${dateArray[2]}</h1>
       `
 
       const content = document.createElement("div");
@@ -46,8 +46,8 @@ fetch("/events/getall",{
       content.classList.add("event-card-content");
       content.innerHTML =
       `
-        <h1 style = "white-space : nowrap;text-overflow : ellipsis;">${event.title}</h1>
-        <p style = "text-overflow : ellipsis; ">${event.description}</p>
+        <h1 style = "font-size : 1rem;white-space : nowrap;text-overflow : ellipsis;">${event.title}</h1>
+        <p style = "font-size : 1rem;text-overflow : ellipsis; ">${event.description}</p>
       `
 
       info.append(date, content);
