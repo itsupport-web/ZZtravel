@@ -42,7 +42,6 @@ fetch("/events/getall",{
       `
 
       const content = document.createElement("div");
-      content.classList.add("flex-column");
       content.classList.add("event-card-content");
       content.innerHTML =
       `

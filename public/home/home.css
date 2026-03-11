@@ -191,15 +191,15 @@ h2,h1{
   height : 100%;
   aspect-ratio: 1/1;
   border-radius: 10px;
-  font-size: 1vw;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; 
 }
 
 .event-card-content{
-  align-items : flex-start !important;
-  justify-content : flex-start !important;
+  display: -webkit-box;        /* necessary for line clamping */
+  -webkit-line-clamp: 3;       /* number of lines to show */
+  -webkit-box-orient: vertical;
   box-sizing : border-box;
   padding : 5%;
   height : 100%;
