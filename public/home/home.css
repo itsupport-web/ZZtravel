@@ -148,7 +148,6 @@ h2,h1{
 
 .contact-button{
     display: flex;
-    font-size : var(--text);
     gap : 10%;
     justify-content: center;  /* horizontal centering */
     align-items: center;      /* vertical centering */
