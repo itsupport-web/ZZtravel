@@ -31,6 +31,7 @@ fetch("/events/getall",{
       info.style.height = "50%";
       info.style.justifyContent = "flex-start";
       info.style.paddingLeft = "10%";
+      info.style.boxSizing = "border-box";
 
       const date = document.createElement("div");
       date.classList.add("flex-column");
@@ -45,7 +46,7 @@ fetch("/events/getall",{
       content.classList.add("flex-column");
       content.innerHTML =
       `
-        <h1 style = "font-size : 1rem;white-space : nowrap;text-overflow : ellipsis;">${event.title}</h1>
+        <h1 style = "font-size : 1rem;white-space : nowrap;text-overflow : ellipsis;overflow:hidden;width : 100%">${event.title}</h1>
         <p style = "font-size : 1rem;">${event.description}</p>
       `
 
