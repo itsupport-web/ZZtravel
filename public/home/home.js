@@ -44,10 +44,12 @@ fetch("/events/getall",{
 
       const content = document.createElement("div");
       content.classList.add("flex-column");
+      content.style.width = "70%";
+      content.style.justifyContent = "flex-start !important";
       content.innerHTML =
       `
         <h1 style = "font-size : 1rem;white-space : nowrap;text-overflow : ellipsis;overflow:hidden;width : 100%">${event.title}</h1>
-        <p style = "font-size : 1rem;">${event.description}</p>
+        <p style = "font-size : 1rem;display: -webkit-box;-webkit-line-clamp: 3-webkit-box-orient: vertical;overflow: hidden;">${event.description}</p>
       `
 
       info.append(date, content);
