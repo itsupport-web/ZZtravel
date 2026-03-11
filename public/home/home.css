@@ -278,7 +278,6 @@ h2,h1{
   align-items: center;
   justify-content : center;
   gap : 5%;
-  min-width : 0;
 }
 
 @keyframes fadeLeft {
