@@ -198,9 +198,11 @@ h2,h1{
 }
 
 .event-card-content{
-  align-items : flex-start;
-  justify-content : flex-start;
+  align-items : flex-start !important;
+  justify-content : flex-start !important;
+  box-sizing : border-box;
   padding : 5%;
+  height : 100%;
 }
 
 ::-webkit-scrollbar {
