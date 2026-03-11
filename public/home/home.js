@@ -45,12 +45,8 @@ fetch("/events/getall",{
       content.classList.add("flex-column");
       content.innerHTML =
       `
-        <div style = "white-space : nowrap;text-overflow : ellipsis;">
-          <h1 style = "font-size : 1rem;">${event.title}</h1>
-        </div>
-        <div class = "event-card-content">
-          <p style = "font-size : 1rem;">${event.description}</p>
-        </div>
+        <h1 style = "font-size : 1rem;white-space : nowrap;text-overflow : ellipsis;">${event.title}</h1>
+        <p style = "font-size : 1rem;">${event.description}</p>
       `
 
       info.append(date, content);
