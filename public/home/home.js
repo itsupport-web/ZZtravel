@@ -36,9 +36,9 @@ fetch("/events/getall",{
       date.classList.add("flex-column");
       date.innerHTML = 
       `
-        <h1 style = "font-size : 1.4em">${dateArray[1]}</h1>
-        <h1 style = "font-size : 4em ; color :#EC3669">${dateArray[0]}</h1>
-        <h1 style = "font-size : 1.4em">${dateArray[2]}</h1>
+        <h1 style = "font-size : 0.5rem">${dateArray[1]}</h1>
+        <h1 style = "font-size : 1rem; color :#EC3669">${dateArray[0]}</h1>
+        <h1 style = "font-size : 0.5rem">${dateArray[2]}</h1>
       `
 
       const content = document.createElement("div");
