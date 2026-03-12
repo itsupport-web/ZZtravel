@@ -49,7 +49,7 @@ body > div{
 
 .intro-text{
     font-size : 1.5vw;
-    line-height: 1.5vw;
+    line-height: 2;
 }
 
 .intro-arrow{
@@ -109,7 +109,7 @@ body > div{
     height : 100vh;
     font-weight: bold;
     box-sizing: border-box;
-    padding : 3% 0;
+    padding : 6% 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
