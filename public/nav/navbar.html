@@ -70,6 +70,7 @@
     .topbar:hover{
       opacity: 1;
     }
+
     .topbarboxes{ 
         gap : 30%;  
         height : 100%;
@@ -100,4 +101,32 @@
     
 </style>
 <script>
+  let lastScroll = 0;
+  const topbar = document.getElementyId("topbar");
+
+  document.addEventListener("scroll", ()=>{
+
+    const currentScroll = window.scrollY;
+    
+    if (currentScroll > lastScroll) {
+      topbar.style.opacity = "0";
+    } else {
+      topbar.style.opacity = "1";
+    }
+
+    lastScroll = currentScroll;
+  })
+
+  document.addEventListener("click", ()=>{
+
+    const currentScroll = window.scrollY;
+    
+    const opa = topbar.style.opacity;
+      if(opa == "1"){
+        topbar.style.opacity = "0";
+      }else{
+        topbar.style.opacity = "1";
+      }
+
+  })
 </script>
