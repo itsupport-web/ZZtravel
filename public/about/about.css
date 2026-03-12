@@ -48,7 +48,8 @@ body > div{
 }
 
 .intro-text{
-    font-size : 1rem;
+    font-size : 1.5vw;
+    line-height: 1.5vw;
 }
 
 .intro-arrow{
