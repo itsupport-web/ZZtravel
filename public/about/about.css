@@ -1,7 +1,14 @@
-body{
+html,body{
     background-color: black;
     color : white;
+    scroll-snap-type: y mandatory; 
+    scroll-behavior: smooth;
 }
+
+body > div{
+    scroll-snap-align: start;
+}
+
 
 *{
     font-family: 'Montserrat', sans-serif; 
