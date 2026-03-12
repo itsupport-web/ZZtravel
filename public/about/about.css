@@ -118,7 +118,8 @@ body{
     height : 30%;
     background-image: URL("/images/about-contact.png");
     background-repeat: no-repeat;
-    background-position: right center;
+    background-position: right center; 
+    background-attachment: fixed;
     -webkit-mask-image: linear-gradient(
     to left, 
     rgba(0,0,0,1) 50%,   /* fully visible toward top-right */
