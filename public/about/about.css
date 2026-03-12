@@ -26,7 +26,7 @@ body{
     top : 0;
     right :0;
     object-fit: contain;
-    width : 30%;
+    height : 100%;
     -webkit-mask-image: linear-gradient(
         to bottom left, 
         rgba(0,0,0,1) 50%,   /* fully visible toward top-right */
@@ -37,11 +37,11 @@ body{
 }
 
 .intro-title{
-    font-size : 70px;
+    font-size : 5vw;
 }
 
 .intro-text{
-    font-size : 36px;
+    font-size : 1rem;
 }
 
 .intro-arrow{
