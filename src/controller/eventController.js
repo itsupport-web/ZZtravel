@@ -75,7 +75,7 @@ async function deleteEvent(req,res){
 
 async function filterEvent(req,res){
   try {
-    const filters = await eventService.filterEvent(req.body.text);
+    const filters = await eventService.filterEvent(req.query.q, req.query.s, req.query.e, req.query.status);
     
     if(!filters){
       return;

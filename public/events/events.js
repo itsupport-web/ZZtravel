@@ -4,31 +4,69 @@ const calendarButton = document.getElementById("calendarbutton");
 const navChild =  document.querySelectorAll('.navigationbar > *');
 const searchInput = document.getElementById("search");
 const searchBar = document.getElementById("searchbar");
+const dateInput = document.getElementById("date");
+const dateBar = document.getElementById("datebar");
+let debounceTimer;
 
-sessionStorage.setItem("q", "");
-sessionStorage.setItem("startdate", "");
-sessionStorage.setItem("enddate", "");
-sessionStorage.setItem("status", "");
 searchInput.value = sessionStorage.getItem("q");
+
+if(sessionStorage.getItem("status") == null){
+  sessionStorage.setItem("status","");
+}
+if(sessionStorage.getItem("q") == null){
+  sessionStorage.setItem("q","");
+}
+if(sessionStorage.getItem("s") == null){
+  sessionStorage.setItem("s","");
+}
+if(sessionStorage.getItem("e") == null){
+  sessionStorage.setItem("e","");
+}
 navChild.forEach((child)=>{
   if (child.id == "searchbar") return;
-
+  if (child.id == "datebar") return;
   child.addEventListener("click",()=>{
     if(child.classList.contains("navhover")){
       child.classList.remove("navhover");
+      sessionStorage.setItem("status", "");
     }else{
+      navChild.forEach((children)=>{
+        children.classList.remove("navhover");
+      })
       child.classList.add("navhover");
+      sessionStorage.setItem("status", child.dataset.type);
     }
+    filter();
   })
 })
 
+searchInput.addEventListener("input", ()=>{
+  sessionStorage.setItem("q", searchInput.value.trim());
+  clearTimeout(debounceTimer);
+
+  debounceTimer = setTimeout(() => {
+    filter();
+  }, 300); 
+})
+
 searchBar.addEventListener("click",()=>{
-  searchBarTrigger();
+  triggerBars(searchBar, searchInput, "60vw", "100%", "0 1%");
 })
 
 searchBar.addEventListener('focusout', (e) => {
   if (!searchBar.contains(e.relatedTarget)) {
-    searchBarUntrigger();
+  triggerBars(searchBar, searchInput, "3vw", "0", "0");
+  }
+});
+
+dateBar.addEventListener("click",()=>{
+  triggerBars(dateBar, dateInput, "250px", "100%", "0 1%"); 
+})
+
+dateBar.addEventListener('focusout', (e) => {
+  const calendar = document.querySelector(".flatpickr-calendar");
+  if (!searchBar.contains(e.relatedTarget) && !(calendar && calendar.contains(e.relatedTarget))) {
+    triggerBars(dateBar, dateInput, "3vw", "0", "0"); 
   }
 });
 
@@ -39,37 +77,41 @@ fetch("/events/getall",{
     showEvents(rows);
 });
 
-function searchBarTrigger(){
-  searchBar.style.width = "60vw";
-  searchBar.style.padding = "0 1%";
-  searchInput.style.width = "100%";
-}
-
-function searchBarUntrigger(){
-  searchBar.style.width = "3vw";
-  searchBar.style.padding = "0";
-  searchInput.style.width = "0";
+function triggerBars(parent,child, pw, cw, padding){
+  parent.style.width = pw;
+  parent.style.padding = padding;
+  child.style.width = cw;
 }
 
 function filter(){
-  const url = "/events/filter?";
+  let url = "/events/filter?";
   if(sessionStorage.getItem("q") != ""){
     url = url + "q=" + sessionStorage.getItem("q");
   }
   if(sessionStorage.getItem("s") != ""){
-    url = url + "&s=" + sessionStorage.getItem("startdate");
+    if(url[url.length-1] != "?"){
+      url = url + "&";
+    }
+    url = url + "s=" + sessionStorage.getItem("s");
   }
   if(sessionStorage.getItem("e") != ""){
-    url = url + "&e=" + sessionStorage.getItem("enddate");
+    if(url[url.length-1] != "?"){
+      url = url + "&";
+    }
+    url = url + "e=" + sessionStorage.getItem("e");
   }
   if(sessionStorage.getItem("status") != ""){
-    url = url + "&status=" + sessionStorage.getItem("status");
+    if(url[url.length-1] != "?"){
+      url = url + "&";
+    }
+    url = url + "status=" + sessionStorage.getItem("status");
   }
-  fetch(url,{method : "GET"})
+  console.log(url);
+  /*fetch(url,{method : "GET"})
   .then(res => res.json())
   .then(rows => {
     showEvents(rows)  
-  })
+  })*/
 }
 async function showEvents(rows){
   document.getElementById("events").innerHTML = "";
@@ -116,3 +158,28 @@ function formatDateString(dateStr){
 
   return formatted;
 }
+
+flatpickr("#datebar", {
+  mode: "range",
+  dateFormat: "Y-m-d",
+  onChange: function(selectedDates, dateStr, instance) {
+    let textContent = "";
+    switch(selectedDates.length){
+      case 0 :
+        textContent = "No Dates Selected";
+        break;
+      case 1 :
+        textContent = "At " + dateStr;
+        break;
+      case 2 :
+        textContent = dateStr;
+        break;  
+    }
+    dateInput.textContent = textContent;
+    sessionStorage.setItem("s", selectedDates[0] ? selectedDates[0].toISOString().slice(0,10) : "");
+    sessionStorage.setItem("e", selectedDates[1] ? selectedDates[1].toISOString().slice(0,10) : "");
+    console.log(sessionStorage.getItem("e"));
+    console.log(sessionStorage.getItem("s"));
+    filter();
+  }
+}); 
