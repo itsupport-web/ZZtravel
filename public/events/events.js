@@ -107,11 +107,11 @@ function filter(){
     url = url + "status=" + sessionStorage.getItem("status");
   }
   console.log(url);
-  /*fetch(url,{method : "GET"})
+  fetch(url,{method : "GET"})
   .then(res => res.json())
   .then(rows => {
     showEvents(rows)  
-  })*/
+  })
 }
 async function showEvents(rows){
   document.getElementById("events").innerHTML = "";
@@ -121,7 +121,7 @@ async function showEvents(rows){
   }
   rows.forEach(async (event) => {
     const dateArray = formatDateString(event.event_date);
-    //const imageSource = await requestImage(event.image);
+    const imageSource = await requestImage(event.image);
     const el = document.createElement("div");
     el.classList.add("event-card");
     el.innerHTML = `
