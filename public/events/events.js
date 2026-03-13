@@ -121,7 +121,7 @@ async function showEvents(rows){
   }
   rows.forEach(async (event) => {
     const dateArray = formatDateString(event.event_date);
-    const imageSource = await requestImage(event.image);
+    //const imageSource = await requestImage(event.image);
     const el = document.createElement("div");
     el.classList.add("event-card");
     el.innerHTML = `
