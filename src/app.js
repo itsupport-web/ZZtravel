@@ -56,7 +56,7 @@ app.use(express.static("public"));
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, '../public', 'notfound.html'));
 });
-
-app.listen(3000, () => {
-  console.log(`Server running on port ${3000}`);
+const PORT = process.env.PORT 
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
