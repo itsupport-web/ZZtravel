@@ -7,7 +7,7 @@
   width : 100%;
   flex-direction: column;
   box-sizing: border-box;
-  padding : 6% 5% 5% 0;
+  padding : 6% 5% 0 5%;
 }
 
 .title{

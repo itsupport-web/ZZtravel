@@ -11,7 +11,7 @@ router.post("/create", eventController.createEvent);
 
 router.post("/delete", eventController.deleteEvent);
 
-router.post("/filter", eventController.filterEvent);
+router.get("/filter", eventController.filterEvent);
 
 router.get("/getimage", eventController.getImage);
 
