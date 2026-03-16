@@ -72,42 +72,45 @@ async function deleteEvent(id){
 }
 
 async function filterEvent(text, startDate, endDate, status){
-  let query = `SELECT * FROM Events`;
-  if(text != undefined || startDate != undefined || endDate != undefined || status != undefined){
-    query= query + " WHERE ";
-  }
-  if(text != undefined){
-    if(query[query.length -1] != " "){
-      query = query + " AND"
-    }
-    query = query + " title ILIKE $1 OR description ILIKE $1";
-  }
-
-  if(startDate != undefined){
-    if(query[query.length -1] != " "){
-      query = query + " AND"
-    }
-    query = query + " event_date > $2";
-  }
-
-  if(endDate != undefined){
-    if(query[query.length -1] != " "){
-      query = query + " AND"
-    }
-    query = query + " event_date < $3";
-  }
-
-  if(status != undefined){
-    if(query[query.length -1] != " "){
-      query = query + " AND"
-    }
-    query = query + " status = $4";
-  }
-  console.log(query)
-  const values = [`%${text, startDate, endDate, status}%`];
-
   try{
-    const result = await pool.query(query, values);
+    let result;
+    let query = `SELECT * FROM Events`;
+    if(text != undefined || startDate != undefined || endDate != undefined || status != undefined){
+        query= query + " WHERE ";
+        if(text != undefined){
+          if(query[query.length -1] != " "){
+            query = query + " AND"
+          }
+          query = query + " title ILIKE $1 OR description ILIKE $1";
+        }
+
+        if(startDate != undefined){
+          if(query[query.length -1] != " "){
+            query = query + " AND"
+          }
+          query = query + " event_date > $2";
+        }
+
+        if(endDate != undefined){
+          if(query[query.length -1] != " "){
+            query = query + " AND"
+          }
+          query = query + " event_date < $3";
+        }
+
+        if(status != undefined){
+          if(query[query.length -1] != " "){
+            query = query + " AND"
+          }
+          query = query + " status = $4";
+        }
+        console.log(query)
+        const values = [`%${text, startDate, endDate, status}%`];
+        result = await pool.query(query, values);
+    }else{
+        result = await pool.query(query);
+    }
+
     console.log(result)
     return result.rows;
   }catch(err){
