@@ -1,0 +1,21 @@
+*{
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bold;
+}
+
+body{
+    background-color: #EC3669;
+    color : white;
+}
+
+img{
+    position : absolute;
+    top : 0;
+    left :0;
+}
+
+a{
+    text-decoration: none;
+    padding : 5%;
+    color : #EC3669;
+}
