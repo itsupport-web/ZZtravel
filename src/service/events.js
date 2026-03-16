@@ -108,7 +108,7 @@ async function filterEvent(text, startDate, endDate, status){
 
   try{
     const result = await pool.query(query, values);
-
+    console.log(result)
     return result.rows;
   }catch(err){
     console.error('Error querying user:', err);

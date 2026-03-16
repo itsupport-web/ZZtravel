@@ -81,6 +81,7 @@ async function filterEvent(req,res){
       return;
     }
 
+    console.log(filters)
     res.send(filters);
   } catch (err) {
     console.error('Error updating record:', err);
