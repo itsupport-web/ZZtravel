@@ -16,7 +16,12 @@ img{
 
 a{
     background-color: white;
+    border-radius: 5px;
     text-decoration: none;
-    padding : 5%;
+    padding : 2%;
     color : #EC3669;
+}
+
+.right{
+    right : 5%;
 }
