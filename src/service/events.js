@@ -71,7 +71,7 @@ async function deleteEvent(id){
   }
 }
 
-async function filterEvent(filters, date){
+async function filterEvent(filters, date, status){
   try{
     let values = [];
     let query = `SELECT * FROM Events`;
@@ -82,6 +82,11 @@ async function filterEvent(filters, date){
         conditions.push(key + " ILIKE $$");
         values.push(`%${filters[key]}%`);
       }
+    }
+
+    if(status != undefined){
+      conditions.push("status = $$");
+      values.push(status)
     }
 
     if(date.length == 1){
