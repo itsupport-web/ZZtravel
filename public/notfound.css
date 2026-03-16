@@ -23,5 +23,6 @@ a{
 }
 
 .right{
+    position: absolute;
     right : 5%;
 }
