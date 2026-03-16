@@ -71,47 +71,37 @@ async function deleteEvent(id){
   }
 }
 
-async function filterEvent(text, startDate, endDate, status){
+async function filterEvent(filters, date){
   try{
-    let result;
+    let values = [];
     let query = `SELECT * FROM Events`;
-    if(text != undefined || startDate != undefined || endDate != undefined || status != undefined){
-        query= query + " WHERE ";
-        if(text != undefined){
-          if(query[query.length -1] != " "){
-            query = query + " AND"
-          }
-          query = query + " title ILIKE $1 OR description ILIKE $1";
-        }
+    let conditions = [];
 
-        if(startDate != undefined){
-          if(query[query.length -1] != " "){
-            query = query + " AND"
-          }
-          query = query + " event_date > $2";
-        }
-
-        if(endDate != undefined){
-          if(query[query.length -1] != " "){
-            query = query + " AND"
-          }
-          query = query + " event_date < $3";
-        }
-
-        if(status != undefined){
-          if(query[query.length -1] != " "){
-            query = query + " AND"
-          }
-          query = query + " status = $4";
-        }
-        console.log(query)
-        const values = [`%${text, startDate, endDate, status}%`];
-        result = await pool.query(query, values);
-    }else{
-        result = await pool.query(query);
+    for(const key in filters){
+      if(filters[key] != undefined){
+        conditions.push(key + " ILIKE $$");
+        values.push(`%${filters[key]}%`);
+      }
     }
 
-    console.log(result)
+    if(date.length == 1){
+      conditions.push("event_date = $$");
+      values.push(date[0])
+    }else if(date.length == 2){
+      conditions.push("event_date BETWEEN $$ AND $$");
+      values.push(date[0],date[1])
+    }
+
+    if(conditions.length > 0){
+      query = query + " WHERE " + conditions.join(" AND ");
+    }
+
+    for(let i = 1;i <= values.length; i++){
+      query = query.replace("$$", "$" + i);
+    }
+
+    
+    const result = await pool.query(query, values);
     return result.rows;
   }catch(err){
     console.error('Error querying user:', err);

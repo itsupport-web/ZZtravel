@@ -74,18 +74,30 @@ async function deleteEvent(req,res){
 }
 
 async function filterEvent(req,res){
-  try {
-    const filters = await eventService.filterEvent(req.query.q, req.query.s, req.query.e, req.query.status);
+  try {    
+    const filters = {
+      title : req.query["q"],
+      description : req.query["q"],
+      status : req.query["status"],
+    };
     
-    if(!filters){
+    let dateArr = [req.query["s"], req.query["e"]];
+    let date = [];
+    for(let i = 0;i < dateArr.length; i++){
+      if(dateArr[i] != undefined){
+        date.push(dateArr[i]);
+      }
+    }
+    const results = await eventService.filterEvent(filters,date);
+    
+    if(!results){
       return;
     }
 
-    console.log(filters)
-    res.send(filters);
+    res.send(results);
   } catch (err) {
     console.error('Error updating record:', err);
   };
 }
 
-module.exports = { getAll, updateEvent, createEvent,deleteEvent, filterEvent, getImage};
+module.exports = { getAll, updateEvent, createEvent, deleteEvent, filterEvent, getImage};
