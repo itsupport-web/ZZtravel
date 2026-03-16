@@ -103,7 +103,7 @@ async function filterEvent(text, startDate, endDate, status){
     }
     query = query + " status = $4";
   }
-
+  console.log(query)
   const values = [`%${text, startDate, endDate, status}%`];
 
   try{
