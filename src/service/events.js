@@ -73,7 +73,7 @@ async function deleteEvent(id){
 
 async function filterEvent(text, startDate, endDate, status){
   let query = `SELECT * FROM Events`;
-  if(text != undefined && startDate != undefined && endDate != undefined && status != undefined){
+  if(text != undefined || startDate != undefined || endDate != undefined || status != undefined){
     query= query + " WHERE ";
   }
   if(text != undefined){
