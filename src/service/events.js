@@ -100,7 +100,7 @@ async function filterEvent(filters, date){
       query = query.replace("$$", "$" + i);
     }
 
-    
+    console.log(query)
     const result = await pool.query(query, values);
     return result.rows;
   }catch(err){
