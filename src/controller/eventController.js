@@ -77,8 +77,7 @@ async function filterEvent(req,res){
   try {    
     const filters = {
       title : req.query["q"],
-      description : req.query["q"],
-      status : req.query["status"],
+      description : req.query["q"]
     };
     
     let dateArr = [req.query["s"], req.query["e"]];
@@ -88,7 +87,7 @@ async function filterEvent(req,res){
         date.push(dateArr[i]);
       }
     }
-    const results = await eventService.filterEvent(filters,date);
+    const results = await eventService.filterEvent(filters,date, req.query["status"]);
     
     if(!results){
       return;
