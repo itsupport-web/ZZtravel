@@ -8,15 +8,13 @@ body{
     color : white;
 }
 
-.content {
-    height : 100%;
+.content{
+    height : 90vh;
     width : 100%;
 }
 
 .content img{
-    position : absolute;
-    top : 0;
-    left :0;
+    margin-right: auto;
 }
 
 .content a{
@@ -29,6 +27,8 @@ body{
 
 .content .right{
     display: flex;
+    margin-top: 10vh;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width : 40%;
