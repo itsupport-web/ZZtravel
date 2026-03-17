@@ -23,7 +23,18 @@ a{
 }
 
 .right{
-    width : 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width : 40%;
     position: absolute;
-    right : 5%;
+    right : 0;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+h1{
+    font-size: 3rem;
 }
