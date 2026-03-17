@@ -8,13 +8,18 @@ body{
     color : white;
 }
 
-img{
+.content {
+    height : 100%;
+    width : 100%;
+}
+
+.content img{
     position : absolute;
     top : 0;
     left :0;
 }
 
-a{
+.content a{
     background-color: white;
     border-radius: 5px;
     text-decoration: none;
@@ -22,7 +27,7 @@ a{
     color : #EC3669;
 }
 
-.right{
+.content .right{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,10 +36,10 @@ a{
     right : 0;
 }
 
-h2{
+.content h2{
     font-size: 2rem;
 }
 
-h1{
+.content h1{
     font-size: 3rem;
 }
