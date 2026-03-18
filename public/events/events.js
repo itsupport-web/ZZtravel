@@ -74,6 +74,8 @@ dateBar.addEventListener('focusout', (e) => {
 
 btn.addEventListener("click", () => {
   dateInput.innerHTML = ""; 
+  sessionStorage.setItem("s", "");
+  sessionStorage.setItem("e", "");
 });
 
 fetch("/events/getall",{
