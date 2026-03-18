@@ -6,7 +6,7 @@ const searchInput = document.getElementById("search");
 const searchBar = document.getElementById("searchbar");
 const dateInput = document.getElementById("date");
 const dateBar = document.getElementById("datebar");
-const btn = document.getElementById("clearBtn");
+const btn = document.getElementById("clearbtn");
 const dateText = document.getElementById("datetext");
 let debounceTimer;
 
