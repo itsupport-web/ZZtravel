@@ -76,6 +76,7 @@ btn.addEventListener("click", () => {
   dateText.innerHTML = ""; 
   sessionStorage.setItem("s", "");
   sessionStorage.setItem("e", "");
+  filter();
 });
 
 fetch("/events/getall",{
