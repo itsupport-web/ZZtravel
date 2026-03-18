@@ -57,7 +57,7 @@ searchBar.addEventListener("click",()=>{
 
 searchBar.addEventListener('focusout', (e) => {
   if (!searchBar.contains(e.relatedTarget)) {
-  triggerBars(searchBar, searchInput, "3vw", "0", "0");
+  triggerBars(searchBar, searchInput, "5vh", "0", "0");
   }
 });
 
@@ -68,7 +68,7 @@ dateBar.addEventListener("click",()=>{
 dateBar.addEventListener('focusout', (e) => {
   const calendar = document.querySelector(".flatpickr-calendar");
   if (!searchBar.contains(e.relatedTarget) && !(calendar && calendar.contains(e.relatedTarget))) {
-    triggerBars(dateBar, dateInput, "3vw", "0", "0"); 
+    triggerBars(dateBar, dateInput, "5vh", "0", "0"); 
   }
 });
 
@@ -171,6 +171,11 @@ function formatDateString(dateStr){
 flatpickr("#datebar", {
   mode: "range",
   dateFormat: "Y-m-d",
+  wrap: true,        // allows placing buttons inside the wrapper
+  altInput: true,    // nicer formatted input
+  allowInput: true,  // allows typing/clearing manually
+  enableTime: false,
+  altFormat: "F j, Y",
   onChange: function(selectedDates, dateStr, instance) {
     let textContent = "";
     switch(selectedDates.length){
