@@ -171,11 +171,6 @@ function formatDateString(dateStr){
 flatpickr("#datebar", {
   mode: "range",
   dateFormat: "Y-m-d",
-  wrap: true,
-  altInput: true,
-  altFormat: "F j, Y",
-  allowInput: true,
-  enableTime: false,
   onChange: function(selectedDates, dateStr, instance) {
     let textContent = "";
     switch(selectedDates.length){
