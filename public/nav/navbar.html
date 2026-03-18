@@ -48,8 +48,7 @@
       let lastScroll = 0;
       const topbar = document.getElementById("topbar");
 
-      document.addEventListener("scroll", ()=>{
-
+      function scrollFunction(){
         const currentScroll = window.scrollY;
         
         if (currentScroll > lastScroll) {
@@ -59,20 +58,22 @@
         }
 
         lastScroll = currentScroll;
-      })
+      }
 
-      document.addEventListener("click", ()=>{
-
+      function clickFunction(){
         const currentScroll = window.scrollY;
         
         const opa = topbar.style.opacity;
-          if(opa == "1"){
-            topbar.style.opacity = "0";
-          }else{
-            topbar.style.opacity = "1";
-          }
+        if(opa == "1"){
+          topbar.style.opacity = "0";
+         }else{
+          topbar.style.opacity = "1";
+        }
+      }
 
-      })
+      document.addEventListener("scroll", scrollFunction)
+
+      document.addEventListener("click",clickFunction)
     </script>
 </div>
 <style>

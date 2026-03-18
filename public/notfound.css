@@ -9,6 +9,7 @@ body{
 }
 
 .content{
+    margin-top: 10vh;
     height : 90vh;
     width : 100%;
 }
@@ -27,7 +28,6 @@ body{
 
 .content .right{
     display: flex;
-    margin-top: 10vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
