@@ -87,7 +87,7 @@ async function filterEvent(req,res){
         date.push(dateArr[i]);
       }
     }
-    const results = await eventService.filterEvent(filters,date, req.query["status"]);
+    const results = await eventService.filterEvent(filters ,date , req.query["status"]);
     
     if(!results){
       return;

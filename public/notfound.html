@@ -18,9 +18,11 @@
         </div>
     </div>
     <script>
-        document.getElementById("topbar").style.position = "relative";
-        document.removeEventListener("click", clickFunction);
-        document.removeEventListener("scroll", scrollFunction);
+        document.addEventListener("componentLoaded", () => {
+            document.getElementById("topbar").style.position = "relative";
+            document.removeEventListener("click", clickFunction);
+            document.removeEventListener("scroll", scrollFunction);
+        });
     </script>
 </body>
 </html>

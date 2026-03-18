@@ -14,4 +14,5 @@ fetch('/nav/navbar.html')
 
       document.body.appendChild(newScript);
     });
+    document.dispatchEvent(new Event("componentLoaded"));
   }).catch(() => retry())
