@@ -7,7 +7,7 @@ const searchBar = document.getElementById("searchbar");
 const dateInput = document.getElementById("date");
 const dateBar = document.getElementById("datebar");
 const btn = document.getElementById("clearBtn");
-
+const dateText = document.getElementById("datetext");
 let debounceTimer;
 
 searchInput.value = sessionStorage.getItem("q");
@@ -62,7 +62,7 @@ searchBar.addEventListener('focusout', (e) => {
 });
 
 dateBar.addEventListener("click",()=>{
-  triggerBars(dateBar, btn, "250px", "100%", "0 1%"); 
+  triggerBars(dateBar, dateInput, "250px", "100%", "0 1%"); 
 })
 
 dateBar.addEventListener('focusout', (e) => {
@@ -73,7 +73,7 @@ dateBar.addEventListener('focusout', (e) => {
 });
 
 btn.addEventListener("click", () => {
-  dateInput.innerHTML = ""; 
+  dateText.innerHTML = ""; 
   sessionStorage.setItem("s", "");
   sessionStorage.setItem("e", "");
 });
