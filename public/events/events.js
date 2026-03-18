@@ -183,7 +183,7 @@ flatpickr("#datebar", {
         textContent = dateStr;
         break;  
     }
-    dateInput.textContent = textContent;
+    dateText.textContent = textContent;
     sessionStorage.setItem("s", selectedDates[0] ? selectedDates[0].toISOString().slice(0,10) : "");
     sessionStorage.setItem("e", selectedDates[1] ? selectedDates[1].toISOString().slice(0,10) : "");
     console.log(sessionStorage.getItem("e"));
