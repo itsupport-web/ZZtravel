@@ -62,7 +62,7 @@ searchBar.addEventListener('focusout', (e) => {
 });
 
 dateBar.addEventListener("click",()=>{
-  triggerBars(dateBar, dateInput, "250px", "100%", "0 1%"); 
+  triggerBars(dateBar, clearBtn, "250px", "100%", "0 1%"); 
 })
 
 dateBar.addEventListener('focusout', (e) => {
