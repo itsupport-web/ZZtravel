@@ -72,7 +72,7 @@
 #searchbar{
   flex-direction: row;
   fill : black;
-  width : 3vw;
+  width : 5vh;
   box-sizing : border-box;
 }
 
@@ -103,7 +103,7 @@
 #datebar{
   flex-direction: row;
   fill : black;
-  width : 3vw;
+  width : 5vh;
 }
 
 .events{
