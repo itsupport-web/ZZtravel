@@ -73,7 +73,7 @@ dateBar.addEventListener('focusout', (e) => {
 });
 
 btn.addEventListener("click", () => {
-  dateInput.value = ""; // clear the input
+  dateInput.innerHTML = ""; 
 });
 
 fetch("/events/getall",{
@@ -83,7 +83,7 @@ fetch("/events/getall",{
     showEvents(rows);
 });
 
-function triggerBars(parent,child, pw, cw, padding){
+function triggerBars(parent, child, pw, cw, padding){
   parent.style.width = pw;
   parent.style.padding = padding;
   child.style.width = cw;
