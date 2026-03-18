@@ -73,7 +73,7 @@ dateBar.addEventListener('focusout', (e) => {
 });
 
 btn.addEventListener("click", () => {
-  searchInput.value = ""; // clear the input
+  dateInput.value = ""; // clear the input
 });
 
 fetch("/events/getall",{

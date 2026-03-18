@@ -57,10 +57,16 @@
     text-decoration: none;
 }
 
+#clearbtn{
+  margin-left: auto;
+  border: none;    
+  background: none;
+}
+
 .navhover{
-    background-color: black !important;
-    color : white !important;
-    fill : white !important;
+  background-color: black !important;
+  color : white !important;
+  fill : white !important;
 }
 
 #searchbar{
