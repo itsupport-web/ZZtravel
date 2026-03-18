@@ -6,6 +6,8 @@ const searchInput = document.getElementById("search");
 const searchBar = document.getElementById("searchbar");
 const dateInput = document.getElementById("date");
 const dateBar = document.getElementById("datebar");
+const btn = document.getElementById("clearBtn");
+
 let debounceTimer;
 
 searchInput.value = sessionStorage.getItem("q");
@@ -68,6 +70,10 @@ dateBar.addEventListener('focusout', (e) => {
   if (!searchBar.contains(e.relatedTarget) && !(calendar && calendar.contains(e.relatedTarget))) {
     triggerBars(dateBar, dateInput, "3vw", "0", "0"); 
   }
+});
+
+btn.addEventListener("click", () => {
+  searchInput.value = ""; // clear the input
 });
 
 fetch("/events/getall",{
